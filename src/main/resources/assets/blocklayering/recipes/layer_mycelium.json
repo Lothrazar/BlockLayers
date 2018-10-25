@@ -6,12 +6,12 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:clay",
+      "item": "minecraft:mycelium",
 	  "data":0
     }
   },
   "result": {
-    "item": "blocklayering:layer_clay",
+    "item": "blocklayering:layer_mycelium",
     "count": 16
   }
 }

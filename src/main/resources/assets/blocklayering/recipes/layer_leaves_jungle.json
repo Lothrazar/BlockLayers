@@ -6,12 +6,12 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:clay",
-	  "data":0
+      "item": "minecraft:leaves",
+	  "data":3
     }
   },
   "result": {
-    "item": "blocklayering:layer_clay",
+    "item": "blocklayering:layer_leaves_jungle",
     "count": 16
   }
 }

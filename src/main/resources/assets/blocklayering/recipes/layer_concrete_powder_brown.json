@@ -6,12 +6,12 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:clay",
-	  "data":0
+      "item": "minecraft:concrete_powder",
+	  "data":12
     }
   },
   "result": {
-    "item": "blocklayering:layer_clay",
+    "item": "blocklayering:layer_concrete_powder_brown",
     "count": 16
   }
 }

@@ -6,12 +6,12 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:clay",
-	  "data":0
+      "item": "minecraft:dirt",
+	  "data":2
     }
   },
   "result": {
-    "item": "blocklayering:layer_clay",
+    "item": "blocklayering:layer_podzol",
     "count": 16
   }
 }

@@ -6,12 +6,12 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:clay",
+      "item": "minecraft:leaves2",
 	  "data":0
     }
   },
   "result": {
-    "item": "blocklayering:layer_clay",
+    "item": "blocklayering:layer_leaves_acacia",
     "count": 16
   }
 }

@@ -55,7 +55,7 @@ public class LayeringRegistry {
     for (Block block : blocks) {
       item = Item.getItemFromBlock(block);
       name = ModBlockLayers.MODID + ":" + block.getUnlocalizedName().replaceAll("tile.", "");
-      System.out.println(block.getUnlocalizedName() + ".name=");
+      //      System.out.println(block.getUnlocalizedName() + ".name=");
       ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name, "inventory"));
       ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name));
     }

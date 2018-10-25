@@ -6,12 +6,12 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:concrete_powder",
-	  "data":8
+      "item": "minecraft:hay_block",
+	  "data":0
     }
   },
   "result": {
-    "item": "blocklayering:layer_concrete_powder_silver",
+    "item": "blocklayering:layer_hay",
     "count": 16
   }
 }
