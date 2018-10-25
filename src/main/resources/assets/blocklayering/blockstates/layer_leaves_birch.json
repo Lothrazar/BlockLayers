@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "layers=1":  { "model": "blocklayering:layer_leaves_birch_height2" },
+        "layers=2":  { "model": "blocklayering:layer_leaves_birch_height4" },
+        "layers=3":  { "model": "blocklayering:layer_leaves_birch_height6" },
+        "layers=4":  { "model": "blocklayering:layer_leaves_birch_height8" },
+        "layers=5":  { "model": "blocklayering:layer_leaves_birch_height10" },
+        "layers=6":  { "model": "blocklayering:layer_leaves_birch_height12" },
+        "layers=7":  { "model": "blocklayering:layer_leaves_birch_height14" },
+        "layers=8":  { "model": "leaves_birch" }
+    }
+}

@@ -7,9 +7,9 @@ echo "Useage: ./_.sh <destination> <new_texture>"
 dest=$1
 texture=$2
 newblock="layer_${dest}"
-original="clay"
+original="grass"
 seed="layer_${original}"
-texture_old="${original}"
+texture_old="${original}_top"
 modid="blocklayering"
 folder="src/main/resources/assets/${modid}"
 

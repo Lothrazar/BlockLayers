@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "layers=1":  { "model": "blocklayering:layer_leaves_acacia_height2" },
+        "layers=2":  { "model": "blocklayering:layer_leaves_acacia_height4" },
+        "layers=3":  { "model": "blocklayering:layer_leaves_acacia_height6" },
+        "layers=4":  { "model": "blocklayering:layer_leaves_acacia_height8" },
+        "layers=5":  { "model": "blocklayering:layer_leaves_acacia_height10" },
+        "layers=6":  { "model": "blocklayering:layer_leaves_acacia_height12" },
+        "layers=7":  { "model": "blocklayering:layer_leaves_acacia_height14" },
+        "layers=8":  { "model": "leaves_acacia" }
+    }
+}
