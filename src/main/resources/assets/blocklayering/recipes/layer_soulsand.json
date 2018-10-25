@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:soulsand",
+	  "data":0
+    }
+  },
+  "result": {
+    "item": "blocklayering:layer_soulsand",
+    "count": 16
+  }
+}

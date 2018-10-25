@@ -26,7 +26,8 @@ cp "${folder}"/models/block/"${seed}"_height12.json "${folder}"/models/block/"${
 cp "${folder}"/models/block/"${seed}"_height14.json "${folder}"/models/block/"${newblock}"_height14.json
 
 cp "${folder}"/models/item/"${seed}".json "${folder}"/models/item/"${newblock}".json
-
+cp "${folder}"/recipes/"${seed}".json "${folder}"/recipes/"${newblock}".json
+    
 
 # replace blockids
 

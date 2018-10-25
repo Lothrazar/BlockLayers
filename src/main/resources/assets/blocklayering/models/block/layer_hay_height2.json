@@ -1,7 +1,7 @@
 {   "parent": "block/thin_block",
     "textures": {
-        "particle": "blocks/hay",
-        "texture": "blocks/hay"
+        "particle": "blocks/hay_block_top",
+        "texture": "blocks/hay_block_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

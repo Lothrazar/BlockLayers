@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:sand",
+	  "data":0
+    }
+  },
+  "result": {
+    "item": "blocklayering:layer_sand",
+    "count": 16
+  }
+}

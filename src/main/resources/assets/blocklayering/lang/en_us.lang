@@ -1,4 +1,10 @@
-itemGroup.absentbydesign=Absent by Design
+itemGroup.blocklayering=Block Layering
 
-tile.stairs_granite.name=Granite Stairs 
 
+
+tile.layer_clay.name=Clay Layer
+tile.layer_sand.name=Sand Layer
+tile.layer_red_sand.name=Red Sand Layer
+tile.layer_gravel.name=Gravel Layer
+tile.layer_hay.name=Hay Layer
+tile.layer_soulsand.name=Soulsand layer

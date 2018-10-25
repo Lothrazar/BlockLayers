@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:dirt",
+	  "data":0
+    }
+  },
+  "result": {
+    "item": "blocklayering:dirt",
+    "count": 16
+  }
+}

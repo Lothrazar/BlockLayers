@@ -3,7 +3,7 @@ package com.lothrazar.blocklayering.registry;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-import com.lothrazar.blocklayering.ModAbsentBD;
+import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.block.ItemLayering;
 import net.minecraft.block.Block;
@@ -44,25 +44,21 @@ public class LayeringRegistry {
     Item item;
     for (Block block : blocks) {
       item = Item.getItemFromBlock(block);
-      name = ModAbsentBD.MODID + ":" + block.getUnlocalizedName().replaceAll("tile.", "");
+      name = ModBlockLayers.MODID + ":" + block.getUnlocalizedName().replaceAll("tile.", "");
+      System.out.println(block.getUnlocalizedName() + ".name=");
       ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name, "inventory"));
       ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name));
     }
   }
-
 
   public void createLayer(Material mat, Item drop, String name) {
     BlockLayering block = new BlockLayering(mat, drop);
     registerBlock(block, "layer_" + name, new ItemLayering(block));
   }
 
-  private Block registerBlock(Block block, String name) {
-    return this.registerBlock(block, name, null);
-  }
-
   private Block registerBlock(Block block, String name, @Nullable ItemBlock itemblock) {
-    block.setCreativeTab(ModAbsentBD.tab);
-    block.setRegistryName(new ResourceLocation(ModAbsentBD.MODID, name));
+    block.setCreativeTab(ModBlockLayers.tab);
+    block.setRegistryName(new ResourceLocation(ModBlockLayers.MODID, name));
     block.setUnlocalizedName(name);
     blocks.add(block);
     ItemBlock ib;
@@ -76,5 +72,4 @@ public class LayeringRegistry {
     itemList.add(ib);
     return block;
   }
-
 }
