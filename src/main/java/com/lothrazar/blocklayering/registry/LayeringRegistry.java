@@ -42,8 +42,9 @@ public class LayeringRegistry {
 
   private List<Block> blockBiomeColours = new ArrayList<>();
 
-  public void registerColour(Block b) {
+  public BlockLayering registerColour(BlockLayering b) {
     this.blockBiomeColours.add(b);
+    return b;
   }
 
   @SideOnly(Side.CLIENT)
@@ -82,16 +83,16 @@ public class LayeringRegistry {
     }, items.toArray(new Item[0]));
   }
 
-  public Block createLayer(Block parent, String name) {
+  public BlockLayering createLayer(Block parent, String name) {
     return createLayer(parent, 0, name);
   }
 
-  public Block createLayer(Block parent, int parentMeta, String name) {
+  public BlockLayering createLayer(Block parent, int parentMeta, String name) {
     BlockLayering block = new BlockLayering(parent.getMaterial(parent.getDefaultState()));
     return registerBlock(block, "layer_" + name, new ItemLayering(block, parent, parentMeta));
   }
 
-  private Block registerBlock(Block block, String name, @Nullable ItemBlock itemblock) {
+  private BlockLayering registerBlock(BlockLayering block, String name, @Nullable ItemBlock itemblock) {
     block.setCreativeTab(ModBlockLayers.tab);
     block.setRegistryName(new ResourceLocation(ModBlockLayers.MODID, name));
     block.setUnlocalizedName(name);

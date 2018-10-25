@@ -10,6 +10,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -76,6 +77,17 @@ public class BlockLayering extends Block {
     return new BlockStateContainer(this, new IProperty[] { LAYERS });
   }
 
+  private boolean translucent = false;
+
+  public void setCutout() {
+    this.translucent = true;
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public BlockRenderLayer getBlockLayer() {
+    return this.translucent ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
+  }
   @Override
   public boolean isOpaqueCube(IBlockState state) {
     return false;

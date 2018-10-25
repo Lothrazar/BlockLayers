@@ -71,12 +71,12 @@ public class ModBlockLayers {
     registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.YELLOW.getMetadata(), "concrete_powder_yellow");
     // grass_path
     //snow layers: sand, red_sand, gravel, soulsand, clay, ?dirt
-    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.OAK.getMetadata(), "leaves_oak"));
-    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.BIRCH.getMetadata(), "leaves_birch"));
-    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.SPRUCE.getMetadata(), "leaves_spruce"));
-    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.JUNGLE.getMetadata(), "leaves_jungle"));
-    registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.DARK_OAK.getMetadata(), "leaves_big_oak"));
-    registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.ACACIA.getMetadata(), "leaves_acacia"));
+    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.OAK.getMetadata(), "leaves_oak")).setCutout();
+    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.BIRCH.getMetadata(), "leaves_birch")).setCutout();
+    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.SPRUCE.getMetadata(), "leaves_spruce")).setCutout();
+    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.JUNGLE.getMetadata(), "leaves_jungle")).setCutout();
+    registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.DARK_OAK.getMetadata(), "leaves_big_oak")).setCutout();
+    registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.ACACIA.getMetadata(), "leaves_acacia")).setCutout();
  
   }
 }
