@@ -3,11 +3,9 @@ package com.lothrazar.blocklayering;
 import org.apache.logging.log4j.Logger;
 import com.lothrazar.blocklayering.registry.LayeringRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -42,34 +40,34 @@ public class ModBlockLayers {
     registry = new LayeringRegistry();
     MinecraftForge.EVENT_BUS.register(registry);
     //now register content 
-    registry.createLayer(Material.ROCK, Items.CLAY_BALL, "clay");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SAND), "sand");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SAND), "red_sand");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.GRAVEL), "gravel");
-    registry.createLayer(Material.ROCK, Items.WHEAT, "hay");// for xisumavoid
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "soulsand");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "dirt");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "coarse_dirt");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "podzol");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "mycelium");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "grass");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "path");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_black");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_blue");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_brown");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_cyan");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_gray");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_green");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_light_blue");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_lime");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_magenta");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_orange");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_pink");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_purple");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_red");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_silver");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_white");
-    registry.createLayer(Material.ROCK, Item.getItemFromBlock(Blocks.SOUL_SAND), "concrete_powder_yellow");
+    registry.createLayer(Blocks.CLAY, "clay");
+    registry.createLayer(Blocks.SAND, "sand");
+    registry.createLayer(Blocks.SAND, 1, "red_sand");
+    registry.createLayer(Blocks.GRAVEL, "gravel");
+    registry.createLayer(Blocks.HAY_BLOCK, "hay");// for xisumavoid
+    registry.createLayer(Blocks.SOUL_SAND, "soulsand");
+    registry.createLayer(Blocks.DIRT, "dirt");
+    registry.createLayer(Blocks.DIRT, 1, "coarse_dirt");
+    registry.createLayer(Blocks.DIRT, 2, "podzol");
+    registry.createLayer(Blocks.MYCELIUM, "mycelium");
+    registry.createLayer(Blocks.GRASS, "grass");
+    registry.createLayer(Blocks.GRASS_PATH, "path");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLACK.getMetadata(), "concrete_powder_black");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLUE.getMetadata(), "concrete_powder_blue");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BROWN.getMetadata(), "concrete_powder_brown");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.CYAN.getMetadata(), "concrete_powder_cyan");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.GRAY.getMetadata(), "concrete_powder_gray");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.GREEN.getMetadata(), "concrete_powder_green");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.LIGHT_BLUE.getMetadata(), "concrete_powder_light_blue");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.LIME.getMetadata(), "concrete_powder_lime");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.MAGENTA.getMetadata(), "concrete_powder_magenta");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.ORANGE.getMetadata(), "concrete_powder_orange");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.PINK.getMetadata(), "concrete_powder_pink");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.PURPLE.getMetadata(), "concrete_powder_purple");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.RED.getMetadata(), "concrete_powder_red");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.SILVER.getMetadata(), "concrete_powder_silver");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.WHITE.getMetadata(), "concrete_powder_white");
+    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.YELLOW.getMetadata(), "concrete_powder_yellow");
     // grass_path
     //snow layers: sand, red_sand, gravel, soulsand, clay, ?dirt
  

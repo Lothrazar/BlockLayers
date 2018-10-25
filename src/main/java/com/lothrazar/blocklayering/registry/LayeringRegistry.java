@@ -7,7 +7,6 @@ import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.block.ItemLayering;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -51,9 +50,13 @@ public class LayeringRegistry {
     }
   }
 
-  public void createLayer(Material mat, Item drop, String name) {
-    BlockLayering block = new BlockLayering(mat, drop);
-    registerBlock(block, "layer_" + name, new ItemLayering(block));
+  public void createLayer(Block parent, String name) {
+    createLayer(parent, 0, name);
+  }
+
+  public void createLayer(Block parent, int parentMeta, String name) {
+    BlockLayering block = new BlockLayering(parent.getMaterial(parent.getDefaultState()));
+    registerBlock(block, "layer_" + name, new ItemLayering(block, parent, parentMeta));
   }
 
   private Block registerBlock(Block block, String name, @Nullable ItemBlock itemblock) {

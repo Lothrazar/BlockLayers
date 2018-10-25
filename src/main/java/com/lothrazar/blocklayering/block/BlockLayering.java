@@ -16,9 +16,9 @@ public class BlockLayering extends BlockSnow {
 
   private Item itemDropped;
 
-  public BlockLayering(Material m, Item itemDropped) {
+  public BlockLayering(Material m) {
     super();
-    this.itemDropped = itemDropped;
+    this.itemDropped = Item.getItemFromBlock(this);
     //    this.blockMaterial = m; 
   }
 
