@@ -50,7 +50,7 @@ public class ModBlockLayers {
     registry.createLayer(Blocks.DIRT, 1, "coarse_dirt");
     registry.createLayer(Blocks.DIRT, 2, "podzol");
     registry.createLayer(Blocks.MYCELIUM, "mycelium");
-    registry.createLayer(Blocks.GRASS, "grass");
+    LayeringRegistry.grass = registry.createLayer(Blocks.GRASS, "grass");
     registry.createLayer(Blocks.GRASS_PATH, "path");
     registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLACK.getMetadata(), "concrete_powder_black");
     registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLUE.getMetadata(), "concrete_powder_blue");
