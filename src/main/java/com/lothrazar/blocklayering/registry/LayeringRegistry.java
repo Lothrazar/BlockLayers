@@ -9,6 +9,7 @@ import com.lothrazar.blocklayering.block.ItemLayering;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
@@ -39,7 +40,11 @@ public class LayeringRegistry {
     }
   }
 
-  public static Block grass = null;
+  private List<Block> blockBiomeColours = new ArrayList<>();
+
+  public void registerColour(Block b) {
+    this.blockBiomeColours.add(b);
+  }
 
   @SideOnly(Side.CLIENT)
   @SubscribeEvent
@@ -61,7 +66,20 @@ public class LayeringRegistry {
     blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> {
       tintIndex = BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
       return tintIndex;
-    }, grass);
+    }, this.blockBiomeColours.toArray(new Block[0]));
+  }
+
+  @SubscribeEvent
+  public void registerItemColors(ColorHandlerEvent.Item event) {
+    List<Item> items = new ArrayList<>();
+    for (Block b : this.blockBiomeColours) {
+      items.add(Item.getItemFromBlock(b));
+    }
+    ItemColors blockColors = event.getItemColors();
+    blockColors.registerItemColorHandler((stack, tintIndex) -> {
+      tintIndex = 0x509026;
+      return tintIndex;
+    }, items.toArray(new Item[0]));
   }
 
   public Block createLayer(Block parent, String name) {

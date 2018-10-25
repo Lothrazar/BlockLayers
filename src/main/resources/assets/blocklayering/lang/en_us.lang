@@ -7,10 +7,9 @@ tile.layer_sand.name=Sand Layer
 tile.layer_red_sand.name=Red Sand Layer
 tile.layer_gravel.name=Gravel Layer
 tile.layer_hay.name=Hay Layer
-tile.layer_soulsand.name=Soulsand layer
-
+tile.layer_soulsand.name=Soulsand Layer
 tile.layer_dirt.name=Dirt Layer
-tile.layer_coarse_dirt.name=Dirt Layer
+tile.layer_coarse_dirt.name=Coarse Dirt Layer
 tile.layer_podzol.name=Podzol Layer
 tile.layer_mycelium.name=Mycelium Layer
 tile.layer_grass.name=Grass Layer
