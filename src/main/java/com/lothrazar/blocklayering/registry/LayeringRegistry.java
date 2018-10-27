@@ -88,7 +88,7 @@ public class LayeringRegistry {
   }
 
   public BlockLayering createLayer(Block parent, int parentMeta, String name) {
-    BlockLayering block = new BlockLayering(parent.getMaterial(parent.getDefaultState()));
+    BlockLayering block = new BlockLayering(parent);
     return registerBlock(block, "layer_" + name, new ItemLayering(block, parent, parentMeta));
   }
 

@@ -30,8 +30,8 @@ minecraft {
 
 dependencies {
   deobfCompile "mezz.jei:jei_${mc_version}:+"
-
 }
+
 //Defines basic patterns for pulling various dependencies.
 repositories {
     maven {
