@@ -61,6 +61,7 @@ public class LayeringRegistry {
     }
   }
 
+  @SideOnly(Side.CLIENT)
   @SubscribeEvent
   public void registerBlockColors(ColorHandlerEvent.Block event) {
     BlockColors blockColors = event.getBlockColors();
@@ -70,6 +71,7 @@ public class LayeringRegistry {
     }, this.blockBiomeColours.toArray(new Block[0]));
   }
 
+  @SideOnly(Side.CLIENT)
   @SubscribeEvent
   public void registerItemColors(ColorHandlerEvent.Item event) {
     List<Item> items = new ArrayList<>();
