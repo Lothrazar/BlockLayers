@@ -69,7 +69,7 @@ public class BlockLayering extends Block {
 
   @Override
   public int quantityDropped(IBlockState state, int fortune, Random random) {
-    return (state.getValue(LAYERS)) + 1;
+    return (state.getValue(LAYERS));
   }
 
   @Override
