@@ -2,10 +2,10 @@
 {
   "modid": "blocklayering",
   "name": "blocklayering Mod",
-  "description": "blocklayering   mod.",
+  "description": "Add snow-layer versions of many blocks.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/block-layers/",
   "updateUrl": "",
   "authorList": ["Lothrazar"],
   "credits": "The Forge and FML guys, for making this example",

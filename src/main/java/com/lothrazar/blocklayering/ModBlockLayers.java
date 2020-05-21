@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = ModBlockLayers.MODID, updateJSON = "https://raw.githubusercontent.com/Lothrazar/DecoLayers/master/update.json")
+@Mod(modid = ModBlockLayers.MODID, updateJSON = "https://raw.githubusercontent.com/Lothrazar/DecoLayers/blob/trunk/1.12/update.json")
 public class ModBlockLayers {
 
   public static final String MODID = "blocklayering";
@@ -35,6 +35,7 @@ public class ModBlockLayers {
       return new ItemStack(icon);
     }
   };
+
   @EventHandler
   public void preInit(FMLPreInitializationEvent event) {
     logger = event.getModLog();
@@ -77,6 +78,5 @@ public class ModBlockLayers {
     registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.JUNGLE.getMetadata(), "leaves_jungle")).setCutout();
     registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.DARK_OAK.getMetadata(), "leaves_big_oak")).setCutout();
     registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.ACACIA.getMetadata(), "leaves_acacia")).setCutout();
- 
   }
 }
