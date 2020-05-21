@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = ModBlockLayers.MODID, updateJSON = "https://raw.githubusercontent.com/Lothrazar/DecoLayers/blob/trunk/1.12/update.json")
+@Mod(modid = ModBlockLayers.MODID, updateJSON = "https://raw.githubusercontent.com/Lothrazar/DecoLayers/trunk/1.12/update.json")
 public class ModBlockLayers {
 
   public static final String MODID = "blocklayering";
