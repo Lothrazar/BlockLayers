@@ -5,22 +5,18 @@ import java.util.List;
 import javax.annotation.Nullable;
 import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
-import com.lothrazar.blocklayering.block.ItemLayering;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraft.world.biome.BiomeColors;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class LayeringRegistry {
 
@@ -47,31 +43,28 @@ public class LayeringRegistry {
     return b;
   }
 
-  @SideOnly(Side.CLIENT)
-  @SubscribeEvent
-  public void registerModels(ModelRegistryEvent event) {
-    String name;
-    Item item;
-    for (Block block : blocks) {
-      item = Item.getItemFromBlock(block);
-      name = ModBlockLayers.MODID + ":" + block.getUnlocalizedName().replaceAll("tile.", "");
-      //      System.out.println(block.getUnlocalizedName() + ".name=");
-      ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name, "inventory"));
-      ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name));
-    }
-  }
-
-  @SideOnly(Side.CLIENT)
+  //  public void registerModels(ModelRegistryEvent event) {
+  //    String name;
+  //    Item item;
+  //    for (Block block : blocks) {
+  //      item = Item.getItemFromBlock(block);
+  //      name = ModBlockLayers.MODID + ":" + block.getUnlocalizedName().replaceAll("tile.", "");
+  //      //      System.out.println(block.getUnlocalizedName() + ".name=");
+  //      ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name, "inventory"));
+  //      ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(name));
+  //    }
+  //  } 
+  @OnlyIn(Dist.CLIENT)
   @SubscribeEvent
   public void registerBlockColors(ColorHandlerEvent.Block event) {
     BlockColors blockColors = event.getBlockColors();
-    blockColors.registerBlockColorHandler((state, worldIn, pos, tintIndex) -> {
-      tintIndex = BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+    blockColors.register((state, worldIn, pos, tintIndex) -> {
+      tintIndex = BiomeColors.getGrassColor(worldIn, pos);
       return tintIndex;
     }, this.blockBiomeColours.toArray(new Block[0]));
   }
 
-  @SideOnly(Side.CLIENT)
+  @OnlyIn(Dist.CLIENT)
   @SubscribeEvent
   public void registerItemColors(ColorHandlerEvent.Item event) {
     List<Item> items = new ArrayList<>();
@@ -79,29 +72,28 @@ public class LayeringRegistry {
       items.add(Item.getItemFromBlock(b));
     }
     ItemColors blockColors = event.getItemColors();
-    blockColors.registerItemColorHandler((stack, tintIndex) -> {
+    blockColors.register((stack, tintIndex) -> {
       tintIndex = 0x509026;
       return tintIndex;
     }, items.toArray(new Item[0]));
   }
 
   public BlockLayering createLayer(Block parent, String name) {
-    return createLayer(parent, 0, name);
+    return createLayer(parent, name);
   }
+  //  public BlockLayering createLayer(Block parent, int parentMeta, String name) {
+  //    BlockLayering block = new BlockLayering(parent);
+  //    return registerBlock(block, "layer_" + name, new ItemLayering(block, parent, parentMeta));
+  //  }
 
-  public BlockLayering createLayer(Block parent, int parentMeta, String name) {
-    BlockLayering block = new BlockLayering(parent);
-    return registerBlock(block, "layer_" + name, new ItemLayering(block, parent, parentMeta));
-  }
-
-  private BlockLayering registerBlock(BlockLayering block, String name, @Nullable ItemBlock itemblock) {
-    block.setCreativeTab(ModBlockLayers.tab);
+  private BlockLayering registerBlock(BlockLayering block, String name, @Nullable BlockItem itemblock) {
+    //    block.setCreativeTab(ModBlockLayers.tab);
     block.setRegistryName(new ResourceLocation(ModBlockLayers.MODID, name));
-    block.setUnlocalizedName(name);
+    //    block.setUnlocalizedName(name);
     blocks.add(block);
-    ItemBlock ib;
+    BlockItem ib;
     if (itemblock == null) {
-      ib = new ItemBlock(block);
+      ib = new BlockItem(block, new Item.Properties());
     }
     else {
       ib = itemblock;

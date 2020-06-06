@@ -1,25 +1,20 @@
 package com.lothrazar.blocklayering.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSnow;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemSnow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemLayering extends ItemSnow {
+public class ItemLayering extends SnowlayerItem {
 
   Block parent = Blocks.SOUL_SAND;
   private int parentMeta;
 
   public ItemLayering(Block block, Block parent, int p) {
+    
     super(block);
+    Items.SNOW
     this.parent = parent;
     this.parentMeta = p;
   }
