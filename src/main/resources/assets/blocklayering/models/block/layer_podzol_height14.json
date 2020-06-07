@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "minecraft:block/dirt_podzol_top",
-        "texture": "minecraft:block/dirt_podzol_top"
+        "particle": "minecraft:block/podzol_top",
+        "texture": "minecraft:block/podzol_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

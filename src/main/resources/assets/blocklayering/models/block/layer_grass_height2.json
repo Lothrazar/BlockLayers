@@ -1,7 +1,7 @@
 {   "parent": "minecraft:block/thin_block",
     "textures": {
-        "particle": "minecraft:block/grass_top",
-        "texture": "minecraft:block/grass_top"
+        "particle": "minecraft:block/grass_block_top",
+        "texture": "minecraft:block/grass_block_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],
