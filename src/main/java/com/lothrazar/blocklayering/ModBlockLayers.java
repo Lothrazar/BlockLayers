@@ -2,15 +2,19 @@ package com.lothrazar.blocklayering;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.registry.LayeringRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -18,41 +22,62 @@ import net.minecraftforge.registries.ObjectHolder;
 public class ModBlockLayers {
 
   public static final String MODID = "blocklayering";
-  @ObjectHolder(ModBlockLayers.MODID + ":layer_hay")
+  @ObjectHolder(ModBlockLayers.MODID + ":layer_clay")
   public static final Block icon = null;
-  private static Logger logger;
-  private LayeringRegistry registry;
+  //  private static Logger logger;
+  public static LayeringRegistry registry;
   public static final Logger LOGGER = LogManager.getLogger();
+  public static ItemGroup tab = new ItemGroup(MODID) {
 
-  //  public static final CreativeTabs tab = new CreativeTabs(ModBlockLayers.MODID) {
-  //
-  //    @Override
-  //    @SideOnly(Side.CLIENT)
-  //    public ItemStack getTabIconItem() {
-  //      return new ItemStack(icon);
-  //    }
-  //  };
+    @Override
+    public ItemStack createIcon() {
+      return new ItemStack(icon);
+    }
+  };
+
   public ModBlockLayers() {
-    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    //    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     MinecraftForge.EVENT_BUS.register(this);
     //    logger = event.getModLog();
     registry = new LayeringRegistry();
-    MinecraftForge.EVENT_BUS.register(registry);
+    //    MinecraftForge.EVENT_BUS.register(registry);
+  }
+
+  @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+  public static class RegistryEvents {
+
+    @SubscribeEvent
+    public static void onBlocksRegistry(RegistryEvent.Register<Block> event) {
+      IForgeRegistry<Block> r = event.getRegistry();
+      r.register(ModBlockLayers.registry.createLayer(Blocks.CLAY, "clay"));
+    }
+
+    @SubscribeEvent
+    public static void onItemsRegistry(RegistryEvent.Register<Item> event) {
+      IForgeRegistry<Item> r = event.getRegistry();
+      Item.Properties properties = new Item.Properties().group(ModBlockLayers.tab);
+      for (BlockLayering b : LayeringRegistry.blocks) {
+        r.register(new BlockItem(b, properties).setRegistryName(b.rawName()));
+      }
+      //      for (Item i : LayeringRegistry.itemList) {
+      //        r.register(i);
+      //      }
+    }
+    //
   }
 
   private void setup(FMLCommonSetupEvent event) {
-    registry.createLayer(Blocks.CLAY, "clay");
-    registry.createLayer(Blocks.SAND, "sand");
+    //    registry.createLayer(Blocks.SAND, "sand");
     //    registry.createLayer(Blocks.SAND, 1, "red_sand");
-    registry.createLayer(Blocks.GRAVEL, "gravel");
-    registry.createLayer(Blocks.HAY_BLOCK, "hay");// for xisumavoid
-    registry.createLayer(Blocks.SOUL_SAND, "soulsand");
-    registry.createLayer(Blocks.DIRT, "dirt");
+    //    registry.createLayer(Blocks.GRAVEL, "gravel");
+    //    registry.createLayer(Blocks.HAY_BLOCK, "hay");// for xisumavoid
+    //    registry.createLayer(Blocks.SOUL_SAND, "soulsand");
+    //    registry.createLayer(Blocks.DIRT, "dirt");
     //    registry.createLayer(Blocks.DIRT, 1, "coarse_dirt");
     //    registry.createLayer(Blocks.DIRT, 2, "podzol");
-    registry.createLayer(Blocks.MYCELIUM, "mycelium");
-    registry.registerColour(registry.createLayer(Blocks.GRASS, "grass"));
-    registry.createLayer(Blocks.GRASS_PATH, "path");
+    //    registry.createLayer(Blocks.MYCELIUM, "mycelium");
+    //    registry.registerColour(registry.createLayer(Blocks.GRASS, "grass"));
+    //    registry.createLayer(Blocks.GRASS_PATH, "path");
     //    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLACK.getMetadata(), "concrete_powder_black");
     //    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLUE.getMetadata(), "concrete_powder_blue");
     //    registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BROWN.getMetadata(), "concrete_powder_brown");
@@ -77,15 +102,5 @@ public class ModBlockLayers {
     //    registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.JUNGLE.getMetadata(), "leaves_jungle")).setCutout();
     //    registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.DARK_OAK.getMetadata(), "leaves_big_oak")).setCutout();
     //    registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.ACACIA.getMetadata(), "leaves_acacia")).setCutout();
-  }
-
-  @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-  public static class RegistryEvents {
-
-    @SubscribeEvent
-    public static void onBlocksRegistry(RegistryEvent.Register<Block> event) {
-      IForgeRegistry<Block> reg = event.getRegistry();
-    }
-    //
   }
 }

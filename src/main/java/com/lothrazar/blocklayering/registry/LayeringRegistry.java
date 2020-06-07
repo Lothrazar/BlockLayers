@@ -2,40 +2,20 @@ package com.lothrazar.blocklayering.registry;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nullable;
-import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class LayeringRegistry {
 
-  public static List<Item> itemList = new ArrayList<Item>();
-  public static List<Block> blocks = new ArrayList<Block>();
-
-  @SubscribeEvent
-  public void onRegistryEvent(RegistryEvent.Register<Block> event) {
-    event.getRegistry().registerAll(blocks.toArray(new Block[0]));
-  }
-
-  @SubscribeEvent
-  public void registerItems(RegistryEvent.Register<Item> event) {
-    for (Item item : itemList) {
-      event.getRegistry().register(item);
-      //     OreDictionary.registerOre(string , item);
-    }
-  }
-
+  public static List<BlockLayering> blocks = new ArrayList<BlockLayering>();
   private List<Block> blockBiomeColours = new ArrayList<>();
 
   public BlockLayering registerColour(BlockLayering b) {
@@ -79,27 +59,8 @@ public class LayeringRegistry {
   }
 
   public BlockLayering createLayer(Block parent, String name) {
-    return createLayer(parent, name);
-  }
-  //  public BlockLayering createLayer(Block parent, int parentMeta, String name) {
-  //    BlockLayering block = new BlockLayering(parent);
-  //    return registerBlock(block, "layer_" + name, new ItemLayering(block, parent, parentMeta));
-  //  }
-
-  private BlockLayering registerBlock(BlockLayering block, String name, @Nullable BlockItem itemblock) {
-    //    block.setCreativeTab(ModBlockLayers.tab);
-    block.setRegistryName(new ResourceLocation(ModBlockLayers.MODID, name));
-    //    block.setUnlocalizedName(name);
+    BlockLayering block = new BlockLayering(parent, Block.Properties.create(parent.getMaterial(parent.getDefaultState())), "layer_" + name);
     blocks.add(block);
-    BlockItem ib;
-    if (itemblock == null) {
-      ib = new BlockItem(block, new Item.Properties());
-    }
-    else {
-      ib = itemblock;
-    }
-    ib.setRegistryName(block.getRegistryName()); // ok good this should work yes? yes! http://mcforge.readthedocs.io/en/latest/blocks/blocks/#registering-a-block
-    itemList.add(ib);
     return block;
   }
 }
