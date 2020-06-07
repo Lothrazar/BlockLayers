@@ -42,7 +42,6 @@ public class ModBlockLayers {
 
   public ModBlockLayers() {
     registry = new LayeringRegistry();
-    //    MinecraftForge.EVENT_BUS.register(this);
   }
 
   @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -104,7 +103,7 @@ public class ModBlockLayers {
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_white"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_yellow"));
       //snow layers: sand, red_sand, gravel, soulsand, clay, ?dirt
-      registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, "leaves_oak"));
+      //      r.register(registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, "leaves_oak")));
       //            registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.BIRCH.getMetadata(), "leaves_birch")).setCutout();
       //            registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.SPRUCE.getMetadata(), "leaves_spruce")).setCutout();
       //            registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.JUNGLE.getMetadata(), "leaves_jungle")).setCutout();

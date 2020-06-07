@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_coarse_dirt_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_coarse_dirt_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_coarse_dirt_height14" },
-        "layers=8":  { "model": "coarse_dirt" }
+        "layers=8":  { "model": "minecraft:block/coarse_dirt" }
     }
 }

@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_soulsand_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_soulsand_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_soulsand_height14" },
-        "layers=8":  { "model": "soul_sand" }
+        "layers=8":  { "model": "minecraft:block/soul_sand" }
     }
 }

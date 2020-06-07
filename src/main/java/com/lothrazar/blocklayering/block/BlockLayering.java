@@ -15,6 +15,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraftforge.common.ToolType;
 
 public class BlockLayering extends Block {
 
@@ -27,14 +28,13 @@ public class BlockLayering extends Block {
 
   public BlockLayering(Block main, Block.Properties props, String reg) {
     super(props);
-    SnowBlock x;
     this.rawName = reg;
     this.setRegistryName(reg);
-    this.setDefaultState(this.stateContainer.getBaseState().with(LAYERS, Integer.valueOf(1)));
-    //    super(main.getMaterial(main.getDefaultState()));
-    //    this.setHardness(main.getBlockHardness(main.getDefaultState(), null, null));
-    //    this.setSoundType(main.getSoundType());
-    //    this.setHarvestLevel("shovel", 0);
+    this.setDefaultState(this.stateContainer.getBaseState().with(LAYERS, Integer.valueOf(8)));
+    props.hardnessAndResistance(main.getBlockHardness(main.getDefaultState(), null, null));
+    props.sound(main.getSoundType(main.getDefaultState()));
+    props.harvestLevel(0);
+    props.harvestTool(ToolType.SHOVEL);
   }
 
   @Override

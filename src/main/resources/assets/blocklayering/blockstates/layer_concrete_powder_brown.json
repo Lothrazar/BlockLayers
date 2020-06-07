@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_concrete_powder_brown_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_concrete_powder_brown_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_concrete_powder_brown_height14" },
-        "layers=8":  { "model": "concrete_powder_brown" }
+        "layers=8":  { "model": "minecraft:block/brown_concrete_powder" }
     }
 }

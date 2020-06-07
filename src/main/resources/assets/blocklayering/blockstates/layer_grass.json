@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_grass_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_grass_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_grass_height14" },
-        "layers=8":  { "model": "grass" }
+        "layers=8":  { "model": "minecraft:block/grass_block" }
     }
 }

@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_concrete_powder_pink_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_concrete_powder_pink_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_concrete_powder_pink_height14" },
-        "layers=8":  { "model": "concrete_powder_pink" }
+        "layers=8":  { "model": "minecraft:block/pink_concrete_powder" }
     }
 }

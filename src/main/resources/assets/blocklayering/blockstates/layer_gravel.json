@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_gravel_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_gravel_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_gravel_height14" },
-        "layers=8":  { "model": "gravel" }
+        "layers=8":  { "model": "minecraft:block/gravel" }
     }
 }

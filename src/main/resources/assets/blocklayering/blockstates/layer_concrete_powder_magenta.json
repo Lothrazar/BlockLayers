@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_concrete_powder_magenta_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_concrete_powder_magenta_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_concrete_powder_magenta_height14" },
-        "layers=8":  { "model": "concrete_powder_magenta" }
+        "layers=8":  { "model": "minecraft:block/magenta_concrete_powder" }
     }
 }
