@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_leaves_birch_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_leaves_birch_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_leaves_birch_height14" },
-        "layers=8":  { "model": "leaves_birch" }
+        "layers=8":  { "model": "minecraft:block/birch_leaves" }
     }
 }

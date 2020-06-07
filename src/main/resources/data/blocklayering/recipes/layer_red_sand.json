@@ -6,8 +6,7 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:sand",
-	  "data":1
+      "item": "minecraft:red_sand"
     }
   },
   "result": {

@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "minecraft:block/leaves_acacia",
-        "texture": "minecraft:block/leaves_acacia"
+        "particle": "minecraft:block/acacia_leaves",
+        "texture": "minecraft:block/acacia_leaves"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

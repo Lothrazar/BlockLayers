@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "minecraft:block/leaves_big_oak",
-        "texture": "minecraft:block/leaves_big_oak"
+        "particle": "minecraft:block/dark_oak_leaves",
+        "texture": "minecraft:block/dark_oak_leaves"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

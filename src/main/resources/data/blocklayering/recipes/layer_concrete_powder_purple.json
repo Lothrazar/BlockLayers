@@ -6,8 +6,7 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:concrete_powder",
-	  "data":10
+      "item": "minecraft:purple_concrete_powder"
     }
   },
   "result": {

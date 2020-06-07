@@ -2,12 +2,12 @@ package com.lothrazar.blocklayering;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.registry.LayeringRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.BlockItem;
@@ -21,6 +21,8 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -31,7 +33,6 @@ public class ModBlockLayers {
   @ObjectHolder(ModBlockLayers.MODID + ":layer_hay")
   public static final Block icon = null;
   public static LayeringRegistry registry;
-  public static final Logger LOGGER = LogManager.getLogger();
   public static ItemGroup tab = new ItemGroup(MODID) {
 
     @Override
@@ -42,6 +43,20 @@ public class ModBlockLayers {
 
   public ModBlockLayers() {
     registry = new LayeringRegistry();
+    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+  }
+
+  @OnlyIn(Dist.CLIENT)
+  private void setup(final FMLClientSetupEvent event) {
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.grass, RenderType.getCutout());
+    //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
+    //cutout fucked up doesnt work lol
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.getSolid());
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.getSolid());
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.getSolid());
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.getSolid());
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.getSolid());
+    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.getSolid());
   }
 
   @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -52,6 +67,9 @@ public class ModBlockLayers {
     public static void registerBlockColors(ColorHandlerEvent.Block event) {
       BlockColors blockColors = event.getBlockColors();
       blockColors.register((state, worldIn, pos, tintIndex) -> {
+        if (pos == null || worldIn == null) {
+          return 0;
+        }
         tintIndex = BiomeColors.getGrassColor(worldIn, pos);
         return tintIndex;
       }, LayeringRegistry.blockBiomeColours.toArray(new Block[0]));
@@ -74,7 +92,7 @@ public class ModBlockLayers {
     @SubscribeEvent
     public static void onBlocksRegistry(RegistryEvent.Register<Block> event) {
       IForgeRegistry<Block> r = event.getRegistry();
-      r.register(ModBlockLayers.registry.createLayer(Blocks.CLAY, "clay"));
+      r.register(registry.createLayer(Blocks.CLAY, "clay"));
       r.register(registry.createLayer(Blocks.SAND, "sand"));
       r.register(registry.createLayer(Blocks.RED_SAND, "red_sand"));
       r.register(registry.createLayer(Blocks.GRAVEL, "gravel"));
@@ -102,13 +120,12 @@ public class ModBlockLayers {
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_silver"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_white"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_yellow"));
-      //snow layers: sand, red_sand, gravel, soulsand, clay, ?dirt
-      //      r.register(registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, "leaves_oak")));
-      //            registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.BIRCH.getMetadata(), "leaves_birch")).setCutout();
-      //            registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.SPRUCE.getMetadata(), "leaves_spruce")).setCutout();
-      //            registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.JUNGLE.getMetadata(), "leaves_jungle")).setCutout();
-      //            registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.DARK_OAK.getMetadata(), "leaves_big_oak")).setCutout();
-      //            registry.registerColour(registry.createLayer(Blocks.LEAVES2, BlockPlanks.EnumType.ACACIA.getMetadata(), "leaves_acacia")).setCutout();
+      r.register(registry.registerColour(registry.createLeaves(Blocks.OAK_LEAVES, "leaves_oak")));
+      r.register(registry.registerColour(registry.createLeaves(Blocks.BIRCH_LEAVES, "leaves_birch")));
+      r.register(registry.registerColour(registry.createLeaves(Blocks.SPRUCE_LEAVES, "leaves_spruce")));
+      r.register(registry.registerColour(registry.createLeaves(Blocks.JUNGLE_LEAVES, "leaves_jungle")));
+      r.register(registry.registerColour(registry.createLeaves(Blocks.DARK_OAK_LEAVES, "leaves_big_oak")));
+      r.register(registry.registerColour(registry.createLeaves(Blocks.ACACIA_LEAVES, "leaves_acacia")));
     }
 
     @SubscribeEvent

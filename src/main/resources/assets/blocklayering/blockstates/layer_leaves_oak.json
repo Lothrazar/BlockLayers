@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_leaves_oak_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_leaves_oak_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_leaves_oak_height14" },
-        "layers=8":  { "model": "leaves_oak" }
+        "layers=8":  { "model": "minecraft:block/oak_leaves" }
     }
 }

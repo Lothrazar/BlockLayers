@@ -30,7 +30,7 @@ public class BlockLayering extends Block {
     super(props);
     this.rawName = reg;
     this.setRegistryName(reg);
-    this.setDefaultState(this.stateContainer.getBaseState().with(LAYERS, Integer.valueOf(8)));
+    this.setDefaultState(this.stateContainer.getBaseState().with(LAYERS, 1));
     props.hardnessAndResistance(main.getBlockHardness(main.getDefaultState(), null, null));
     props.sound(main.getSoundType(main.getDefaultState()));
     props.harvestLevel(0);

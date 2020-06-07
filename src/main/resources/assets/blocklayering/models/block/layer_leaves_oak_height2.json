@@ -1,7 +1,7 @@
 {   "parent": "minecraft:block/thin_block",
     "textures": {
-        "particle": "minecraft:block/leaves_oak",
-        "texture": "minecraft:block/leaves_oak"
+        "particle": "minecraft:block/oak_leaves",
+        "texture": "minecraft:block/oak_leaves"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

@@ -7,6 +7,6 @@
         "layers=5":  { "model": "blocklayering:block/layer_leaves_acacia_height10" },
         "layers=6":  { "model": "blocklayering:block/layer_leaves_acacia_height12" },
         "layers=7":  { "model": "blocklayering:block/layer_leaves_acacia_height14" },
-        "layers=8":  { "model": "leaves_acacia" }
+        "layers=8":  { "model": "minecraft:block/acacia_leaves" }
     }
 }
