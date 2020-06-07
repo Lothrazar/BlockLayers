@@ -1,12 +1,12 @@
 {
     "variants": {
-        "layers=1":  { "model": "blocklayering:layer_gravel_height2" },
-        "layers=2":  { "model": "blocklayering:layer_gravel_height4" },
-        "layers=3":  { "model": "blocklayering:layer_gravel_height6" },
-        "layers=4":  { "model": "blocklayering:layer_gravel_height8" },
-        "layers=5":  { "model": "blocklayering:layer_gravel_height10" },
-        "layers=6":  { "model": "blocklayering:layer_gravel_height12" },
-        "layers=7":  { "model": "blocklayering:layer_gravel_height14" },
+        "layers=1":  { "model": "blocklayering:block/layer_gravel_height2" },
+        "layers=2":  { "model": "blocklayering:block/layer_gravel_height4" },
+        "layers=3":  { "model": "blocklayering:block/layer_gravel_height6" },
+        "layers=4":  { "model": "blocklayering:block/layer_gravel_height8" },
+        "layers=5":  { "model": "blocklayering:block/layer_gravel_height10" },
+        "layers=6":  { "model": "blocklayering:block/layer_gravel_height12" },
+        "layers=7":  { "model": "blocklayering:block/layer_gravel_height14" },
         "layers=8":  { "model": "gravel" }
     }
 }
