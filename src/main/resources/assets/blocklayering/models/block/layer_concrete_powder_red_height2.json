@@ -1,7 +1,7 @@
-{   "parent": "block/thin_block",
+{   "parent": "minecraft:block/thin_block",
     "textures": {
-        "particle": "blocks/concrete_powder_red",
-        "texture": "blocks/concrete_powder_red"
+        "particle": "minecraft:block/concrete_powder_red",
+        "texture": "minecraft:block/concrete_powder_red"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

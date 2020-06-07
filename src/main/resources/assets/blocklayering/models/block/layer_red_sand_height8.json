@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/red_sand",
-        "texture": "blocks/red_sand"
+        "particle": "minecraft:block/red_sand",
+        "texture": "minecraft:block/red_sand"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

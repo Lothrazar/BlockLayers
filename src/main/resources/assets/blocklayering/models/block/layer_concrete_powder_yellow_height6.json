@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/concrete_powder_yellow",
-        "texture": "blocks/concrete_powder_yellow"
+        "particle": "minecraft:block/concrete_powder_yellow",
+        "texture": "minecraft:block/concrete_powder_yellow"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

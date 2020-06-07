@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/mycelium_top",
-        "texture": "blocks/mycelium_top"
+        "particle": "minecraft:block/mycelium_top",
+        "texture": "minecraft:block/mycelium_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

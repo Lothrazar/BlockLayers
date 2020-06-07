@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/gravel",
-        "texture": "blocks/gravel"
+        "particle": "minecraft:block/gravel",
+        "texture": "minecraft:block/gravel"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/grass_top",
-        "texture": "blocks/grass_top"
+        "particle": "minecraft:block/grass_top",
+        "texture": "minecraft:block/grass_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

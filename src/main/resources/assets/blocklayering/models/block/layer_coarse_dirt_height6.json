@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/coarse_dirt",
-        "texture": "blocks/coarse_dirt"
+        "particle": "minecraft:block/coarse_dirt",
+        "texture": "minecraft:block/coarse_dirt"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

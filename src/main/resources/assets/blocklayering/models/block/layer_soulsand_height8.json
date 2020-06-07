@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/soul_sand",
-        "texture": "blocks/soul_sand"
+        "particle": "minecraft:block/soul_sand",
+        "texture": "minecraft:block/soul_sand"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

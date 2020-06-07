@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "blocks/concrete_powder_lime",
-        "texture": "blocks/concrete_powder_lime"
+        "particle": "minecraft:block/concrete_powder_lime",
+        "texture": "minecraft:block/concrete_powder_lime"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

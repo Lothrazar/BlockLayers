@@ -1,7 +1,7 @@
-{   "parent": "block/thin_block",
+{   "parent": "minecraft:block/thin_block",
     "textures": {
-        "particle": "blocks/leaves_spruce",
-        "texture": "blocks/leaves_spruce"
+        "particle": "minecraft:block/leaves_spruce",
+        "texture": "minecraft:block/leaves_spruce"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],
