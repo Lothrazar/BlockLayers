@@ -10,11 +10,9 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -35,7 +33,6 @@ public class ModBlockLayers {
   };
 
   public ModBlockLayers() {
-    MinecraftForge.EVENT_BUS.register(this);
     registry = new LayeringRegistry();
   }
 
@@ -58,22 +55,21 @@ public class ModBlockLayers {
       r.register(registry.registerColour(registry.createLayer(Blocks.GRASS, "grass")));
       r.register(registry.createLayer(Blocks.GRASS_PATH, "path"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_black"));
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BLUE.getMetadata(), "concrete_powder_blue");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.BROWN.getMetadata(), "concrete_powder_brown");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.CYAN.getMetadata(), "concrete_powder_cyan");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.GRAY.getMetadata(), "concrete_powder_gray");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.GREEN.getMetadata(), "concrete_powder_green");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.LIGHT_BLUE.getMetadata(), "concrete_powder_light_blue");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.LIME.getMetadata(), "concrete_powder_lime");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.MAGENTA.getMetadata(), "concrete_powder_magenta");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.ORANGE.getMetadata(), "concrete_powder_orange");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.PINK.getMetadata(), "concrete_powder_pink");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.PURPLE.getMetadata(), "concrete_powder_purple");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.RED.getMetadata(), "concrete_powder_red");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.SILVER.getMetadata(), "concrete_powder_silver");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.WHITE.getMetadata(), "concrete_powder_white");
-      //      registry.createLayer(Blocks.CONCRETE_POWDER, EnumDyeColor.YELLOW.getMetadata(), "concrete_powder_yellow");
-      // grass_path
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_blue"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_brown"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_cyan"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_gray"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_green"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_light_blue"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_lime"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_magenta"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_orange"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_pink"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_purple"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_red"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_silver"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_white"));
+      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, "concrete_powder_yellow"));
       //snow layers: sand, red_sand, gravel, soulsand, clay, ?dirt
       //      registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.OAK.getMetadata(), "leaves_oak")).setCutout();
       //      registry.registerColour(registry.createLayer(Blocks.LEAVES, BlockPlanks.EnumType.BIRCH.getMetadata(), "leaves_birch")).setCutout();
@@ -92,6 +88,4 @@ public class ModBlockLayers {
       }
     }
   }
-
-  private void setup(FMLCommonSetupEvent event) {}
 }
