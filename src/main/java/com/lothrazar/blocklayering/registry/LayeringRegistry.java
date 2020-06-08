@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
-import com.lothrazar.blocklayering.block.BlockLayeringLeaves;
 import net.minecraft.block.Block;
+import net.minecraft.block.Block.Properties;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class LayeringRegistry {
@@ -35,14 +36,20 @@ public class LayeringRegistry {
   }
 
   public BlockLayering createLayer(Block parent, String name) {
-    BlockLayering block = new BlockLayering(parent, Block.Properties.create(parent.getMaterial(parent.getDefaultState())), "layer_" + name);
+    Properties props = Block.Properties.create(parent.getMaterial(parent.getDefaultState()));
+    props.hardnessAndResistance(
+        0.2F + parent.getBlockHardness(parent.getDefaultState(), null, null));
+    props.sound(parent.getSoundType(parent.getDefaultState()));
+    props.harvestLevel(0);
+    props.harvestTool(ToolType.SHOVEL);
+    BlockLayering block = new BlockLayering(parent, props, "layer_" + name);
     blocks.add(block);
     return block;
   }
 
   public BlockLayering createLeaves(Block parent, String name) {
-    BlockLayering block = new BlockLayeringLeaves(parent, Block.Properties.create(parent.getMaterial(parent.getDefaultState())), "layer_" + name);
-    blocks.add(block);
-    return block;
+    //    BlockLayering block = new BlockLayeringLeaves(parent, props, "layer_" + name);
+    //    blocks.add(block);//doesnt work anyway
+    return createLayer(parent, name);
   }
 }
