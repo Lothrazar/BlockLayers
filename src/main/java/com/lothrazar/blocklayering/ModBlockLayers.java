@@ -46,7 +46,6 @@ public class ModBlockLayers {
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
   }
 
-  @OnlyIn(Dist.CLIENT)
   private void setup(final FMLClientSetupEvent event) {
     RenderTypeLookup.setRenderLayer(LayeringRegistry.grass, RenderType.getCutout());
     //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
