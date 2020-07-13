@@ -5,9 +5,7 @@ import java.util.List;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.registry.LayeringRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.block.Blocks; 
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.BlockItem;
@@ -47,15 +45,15 @@ public class ModBlockLayers {
   }
 
   private void setup(final FMLClientSetupEvent event) {
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.grass, RenderType.getCutout());
-    //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
-    //cutout fucked up doesnt work lol
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.getSolid());
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.grass, RenderType.getCutout());
+//    //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
+//    //cutout fucked up doesnt work lol
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.getSolid());
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.getSolid());
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.getSolid());
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.getSolid());
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.getSolid());
+//    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.getSolid());
   }
 
   @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

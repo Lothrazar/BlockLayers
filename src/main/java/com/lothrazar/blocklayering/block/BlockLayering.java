@@ -1,6 +1,7 @@
 package com.lothrazar.blocklayering.block;
 
 import javax.annotation.Nullable;
+import com.lothrazar.blocklayering.registry.LayeringRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -8,6 +9,7 @@ import net.minecraft.block.SnowBlock;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -29,9 +31,17 @@ public class BlockLayering extends Block {
     super(props);
     this.rawName = reg;
     this.setRegistryName(reg);
-    this.setDefaultState(this.stateContainer.getBaseState().with(LAYERS, 1));
+    this.setDefaultState(this.stateContainer.getBaseState().with(LAYERS, 1)); 
   }
 
+  @Override
+  public BlockRenderLayer getRenderLayer() {
+    if(this==LayeringRegistry.grass ) {
+      return BlockRenderLayer.CUTOUT;
+    }
+     return super.getRenderLayer();
+  }
+  
   @Override
   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
     builder.add(LAYERS);
@@ -51,10 +61,10 @@ public class BlockLayering extends Block {
     return SHAPES[state.get(LAYERS) - 1];
   }
 
-  @Override
-  public boolean isTransparent(BlockState state) {
-    return true;
-  }
+//  @Override
+//  public boolean isTransparent(BlockState state) { 
+//    return true;
+//  }
 
   @Override
   public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
