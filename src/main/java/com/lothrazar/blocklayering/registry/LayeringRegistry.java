@@ -5,7 +5,7 @@ import java.util.List;
 import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import net.minecraft.block.Block;
-import net.minecraft.block.Block.Properties;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -35,10 +35,9 @@ public class LayeringRegistry {
     return b;
   }
 
-  public BlockLayering createLayer(Block parent, String name) {
-    Properties props = Block.Properties.create(parent.getMaterial(parent.getDefaultState()));
-    props.hardnessAndResistance(
-        0.2F + parent.getBlockHardness(parent.getDefaultState(), null, null));
+  public BlockLayering createLayer(Block parent, Material mat, String name) {
+    Block.Properties props = Block.Properties.create(mat);
+    props.hardnessAndResistance(parent.getDefaultState().hardness);
     props.sound(parent.getSoundType(parent.getDefaultState()));
     props.harvestLevel(0);
     props.harvestTool(ToolType.SHOVEL);
@@ -47,9 +46,9 @@ public class LayeringRegistry {
     return block;
   }
 
-  public BlockLayering createLeaves(Block parent, String name) {
+  public BlockLayering createLeaves(Block parent, Material mat, String name) {
     //    BlockLayering block = new BlockLayeringLeaves(parent, props, "layer_" + name);
     //    blocks.add(block);//doesnt work anyway
-    return createLayer(parent, name);
+    return createLayer(parent, mat, name);
   }
 }

@@ -15,9 +15,4 @@ public class BlockLayeringLeaves extends BlockLayering {
   public int getOpacity(BlockState state, IBlockReader worldIn, BlockPos pos) {
     return 255;
   }
-
-  @Override
-  public boolean causesSuffocation(BlockState state, IBlockReader worldIn, BlockPos pos) {
-    return false;
-  }
 }
