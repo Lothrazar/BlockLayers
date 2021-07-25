@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -36,9 +36,9 @@ public class LayeringRegistry {
   }
 
   public BlockLayering createLayer(Block parent, Material mat, String name) {
-    Block.Properties props = Block.Properties.create(mat);
-    props.hardnessAndResistance(parent.getDefaultState().hardness);
-    props.sound(parent.getSoundType(parent.getDefaultState()));
+    Block.Properties props = Block.Properties.of(mat);
+    props.strength(parent.defaultBlockState().destroySpeed);
+    props.sound(parent.getSoundType(parent.defaultBlockState()));
     props.harvestLevel(0);
     props.harvestTool(ToolType.SHOVEL);
     BlockLayering block = new BlockLayering(parent, props, "layer_" + name);

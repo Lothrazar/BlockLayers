@@ -9,6 +9,7 @@ mods/
 libs/
 saves/
 .gradle/
+.idea/
 .settings/
 server.properties 
 run/screenshots/

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.registry.LayeringRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -34,10 +34,10 @@ public class ModBlockLayers {
   @ObjectHolder(ModBlockLayers.MODID + ":layer_hay")
   public static final Block icon = null;
   public static LayeringRegistry registry;
-  public static ItemGroup tab = new ItemGroup(MODID) {
+  public static CreativeModeTab tab = new CreativeModeTab(MODID) {
 
     @Override
-    public ItemStack createIcon() {
+    public ItemStack makeIcon() {
       return new ItemStack(icon);
     }
   };
@@ -48,15 +48,15 @@ public class ModBlockLayers {
   }
 
   private void setup(final FMLClientSetupEvent event) {
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.grass, RenderType.getCutout());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.grass, RenderType.cutout());
     //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
     //cutout fucked up doesnt work lol
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.getSolid());
-    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.getSolid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.solid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.solid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.solid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.solid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.solid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.solid());
   }
 
   @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -70,7 +70,7 @@ public class ModBlockLayers {
         if (pos == null || worldIn == null) {
           return 0;
         }
-        tintIndex = BiomeColors.getGrassColor(worldIn, pos);
+        tintIndex = BiomeColors.getAverageGrassColor(worldIn, pos);
         return tintIndex;
       }, LayeringRegistry.blockBiomeColours.toArray(new Block[0]));
     }
@@ -80,7 +80,7 @@ public class ModBlockLayers {
     public static void registerItemColors(ColorHandlerEvent.Item event) {
       List<Item> items = new ArrayList<>();
       for (Block b : LayeringRegistry.blockBiomeColours) {
-        items.add(Item.getItemFromBlock(b));
+        items.add(Item.byBlock(b));
       }
       ItemColors blockColors = event.getItemColors();
       blockColors.register((stack, tintIndex) -> {
@@ -96,14 +96,14 @@ public class ModBlockLayers {
       r.register(registry.createLayer(Blocks.SAND, Material.SAND, "sand"));
       r.register(registry.createLayer(Blocks.RED_SAND, Material.SAND, "red_sand"));
       r.register(registry.createLayer(Blocks.GRAVEL, Material.SAND, "gravel"));
-      r.register(registry.createLayer(Blocks.HAY_BLOCK, Material.ORGANIC, "hay"));// for xisumavoid
+      r.register(registry.createLayer(Blocks.HAY_BLOCK, Material.GRASS, "hay"));// for xisumavoid
       r.register(registry.createLayer(Blocks.SOUL_SAND, Material.SAND, "soulsand"));
-      r.register(registry.createLayer(Blocks.DIRT, Material.EARTH, "dirt"));
-      r.register(registry.createLayer(Blocks.COARSE_DIRT, Material.EARTH, "coarse_dirt"));
-      r.register(registry.createLayer(Blocks.PODZOL, Material.EARTH, "podzol"));
-      r.register(registry.createLayer(Blocks.MYCELIUM, Material.EARTH, "mycelium"));
-      r.register(registry.registerColour(registry.createLayer(Blocks.GRASS, Material.EARTH, "grass")));
-      r.register(registry.createLayer(Blocks.GRASS_PATH, Material.EARTH, "path"));
+      r.register(registry.createLayer(Blocks.DIRT, Material.DIRT, "dirt"));
+      r.register(registry.createLayer(Blocks.COARSE_DIRT, Material.DIRT, "coarse_dirt"));
+      r.register(registry.createLayer(Blocks.PODZOL, Material.DIRT, "podzol"));
+      r.register(registry.createLayer(Blocks.MYCELIUM, Material.DIRT, "mycelium"));
+      r.register(registry.registerColour(registry.createLayer(Blocks.GRASS, Material.DIRT, "grass")));
+      r.register(registry.createLayer(Blocks.DIRT_PATH, Material.DIRT, "path"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_black"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_blue"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_brown"));
@@ -131,7 +131,7 @@ public class ModBlockLayers {
     @SubscribeEvent
     public static void onItemsRegistry(RegistryEvent.Register<Item> event) {
       IForgeRegistry<Item> r = event.getRegistry();
-      Item.Properties properties = new Item.Properties().group(ModBlockLayers.tab);
+      Item.Properties properties = new Item.Properties().tab(ModBlockLayers.tab);
       for (BlockLayering b : LayeringRegistry.blocks) {
         r.register(new BlockItem(b, properties).setRegistryName(b.rawName()));
       }

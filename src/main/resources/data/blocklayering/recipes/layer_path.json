@@ -6,8 +6,7 @@
   ],
   "key": {
     "c": {
-      "item": "minecraft:grass_path",
-	  "data":0
+      "item": "minecraft:dirt_path"
     }
   },
   "result": {
