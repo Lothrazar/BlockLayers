@@ -3,9 +3,7 @@ package com.lothrazar.blocklayering.block;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.BlockGetter;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.BlockGetter; 
 
 public class BlockLayeringLeaves extends BlockLayering {
 

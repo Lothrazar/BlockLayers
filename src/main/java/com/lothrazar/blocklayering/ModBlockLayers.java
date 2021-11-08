@@ -75,6 +75,7 @@ public class ModBlockLayers {
       }, LayeringRegistry.blockBiomeColours.toArray(new Block[0]));
     }
 
+    @SuppressWarnings("deprecation")
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerItemColors(ColorHandlerEvent.Item event) {
@@ -120,12 +121,12 @@ public class ModBlockLayers {
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_silver"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_white"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_yellow"));
-      r.register(registry.registerColour(registry.createLeaves(Blocks.OAK_LEAVES, Material.LEAVES, "leaves_oak")));
-      r.register(registry.registerColour(registry.createLeaves(Blocks.BIRCH_LEAVES, Material.LEAVES, "leaves_birch")));
-      r.register(registry.registerColour(registry.createLeaves(Blocks.SPRUCE_LEAVES, Material.LEAVES, "leaves_spruce")));
-      r.register(registry.registerColour(registry.createLeaves(Blocks.JUNGLE_LEAVES, Material.LEAVES, "leaves_jungle")));
-      r.register(registry.registerColour(registry.createLeaves(Blocks.DARK_OAK_LEAVES, Material.LEAVES, "leaves_big_oak")));
-      r.register(registry.registerColour(registry.createLeaves(Blocks.ACACIA_LEAVES, Material.LEAVES, "leaves_acacia")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, Material.LEAVES, "leaves_oak")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.BIRCH_LEAVES, Material.LEAVES, "leaves_birch")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.SPRUCE_LEAVES, Material.LEAVES, "leaves_spruce")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.JUNGLE_LEAVES, Material.LEAVES, "leaves_jungle")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.DARK_OAK_LEAVES, Material.LEAVES, "leaves_big_oak")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.ACACIA_LEAVES, Material.LEAVES, "leaves_acacia")));
     }
 
     @SubscribeEvent

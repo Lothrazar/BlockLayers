@@ -6,7 +6,6 @@ import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class LayeringRegistry {
@@ -35,20 +34,13 @@ public class LayeringRegistry {
     return b;
   }
 
+  @SuppressWarnings("deprecation")
   public BlockLayering createLayer(Block parent, Material mat, String name) {
     Block.Properties props = Block.Properties.of(mat);
     props.strength(parent.defaultBlockState().destroySpeed);
     props.sound(parent.getSoundType(parent.defaultBlockState()));
-    props.harvestLevel(0);
-    props.harvestTool(ToolType.SHOVEL);
     BlockLayering block = new BlockLayering(parent, props, "layer_" + name);
     blocks.add(block);
     return block;
-  }
-
-  public BlockLayering createLeaves(Block parent, Material mat, String name) {
-    //    BlockLayering block = new BlockLayeringLeaves(parent, props, "layer_" + name);
-    //    blocks.add(block);//doesnt work anyway
-    return createLayer(parent, mat, name);
   }
 }

@@ -1,13 +1,11 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/block-layers",
   "promos": {
-    "1.17.1-latest": "1.0.0",
-    "1.17.1-recommended": "1.0.0"
-  },
-  "1.16.5": {
-	"1.0.0":"Ported"
+    "1.17.1-latest": "1.0.1",
+    "1.17.1-recommended": "1.0.1"
   },
   "1.17.1": {
-    "1.0.0":"Ported"
+    "1.0.0":"Ported",
+    "1.0.1":"Update to accomodate breaking changes introduced by forge ToolActions"
   }
 }
