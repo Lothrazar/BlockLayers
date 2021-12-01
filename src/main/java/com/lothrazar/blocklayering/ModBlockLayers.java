@@ -51,12 +51,12 @@ public class ModBlockLayers {
     ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.grass, RenderType.cutout());
     //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
     //cutout fucked up doesnt work lol
-    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.solid());
-    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.solid());
-    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.solid());
-    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.solid());
-    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.solid());
-    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.solid());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.cutout());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.cutout());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.cutout());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_jun, RenderType.cutout());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_spruce, RenderType.cutoutMipped());
+    ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_dark, RenderType.cutout());
   }
 
   @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -121,12 +121,12 @@ public class ModBlockLayers {
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_silver"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_white"));
       r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_yellow"));
-      r.register(registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, Material.LEAVES, "leaves_oak")));
-      r.register(registry.registerColour(registry.createLayer(Blocks.BIRCH_LEAVES, Material.LEAVES, "leaves_birch")));
-      r.register(registry.registerColour(registry.createLayer(Blocks.SPRUCE_LEAVES, Material.LEAVES, "leaves_spruce")));
-      r.register(registry.registerColour(registry.createLayer(Blocks.JUNGLE_LEAVES, Material.LEAVES, "leaves_jungle")));
-      r.register(registry.registerColour(registry.createLayer(Blocks.DARK_OAK_LEAVES, Material.LEAVES, "leaves_big_oak")));
-      r.register(registry.registerColour(registry.createLayer(Blocks.ACACIA_LEAVES, Material.LEAVES, "leaves_acacia")));
+      r.register(registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, Material.LEAVES, "leaves_oak", true)));
+      r.register(registry.registerColour(registry.createLayer(Blocks.BIRCH_LEAVES, Material.LEAVES, "leaves_birch", true)));
+      r.register(registry.registerColour(registry.createLayer(Blocks.SPRUCE_LEAVES, Material.LEAVES, "leaves_spruce", true)));
+      r.register(registry.registerColour(registry.createLayer(Blocks.JUNGLE_LEAVES, Material.LEAVES, "leaves_jungle", true)));
+      r.register(registry.registerColour(registry.createLayer(Blocks.DARK_OAK_LEAVES, Material.LEAVES, "leaves_big_oak", true)));
+      r.register(registry.registerColour(registry.createLayer(Blocks.ACACIA_LEAVES, Material.LEAVES, "leaves_acacia", true)));
     }
 
     @SubscribeEvent

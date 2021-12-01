@@ -1,9 +1,9 @@
 package com.lothrazar.blocklayering.registry;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.lothrazar.blocklayering.ModBlockLayers;
 import com.lothrazar.blocklayering.block.BlockLayering;
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.ObjectHolder;
@@ -34,11 +34,18 @@ public class LayeringRegistry {
     return b;
   }
 
-  @SuppressWarnings("deprecation")
   public BlockLayering createLayer(Block parent, Material mat, String name) {
+    return createLayer(parent, mat, name, false);
+  }
+
+  @SuppressWarnings("deprecation")
+  public BlockLayering createLayer(Block parent, Material mat, String name, boolean notsolid) {
     Block.Properties props = Block.Properties.of(mat);
     props.strength(parent.defaultBlockState().destroySpeed);
     props.sound(parent.getSoundType(parent.defaultBlockState()));
+    if (notsolid) {
+      props.noOcclusion();
+    }
     BlockLayering block = new BlockLayering(parent, props, "layer_" + name);
     blocks.add(block);
     return block;
