@@ -7,8 +7,8 @@ import net.minecraft.world.level.BlockGetter;
 
 public class BlockLayeringLeaves extends BlockLayering {
 
-  public BlockLayeringLeaves(Block main, Properties props, String reg) {
-    super(main, props, reg);
+  public BlockLayeringLeaves(Block main, Properties props) {
+    super(main, props);
   }
 
   @Override

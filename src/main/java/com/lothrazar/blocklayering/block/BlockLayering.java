@@ -23,22 +23,15 @@ public class BlockLayering extends Block {
       Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
       Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
       Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D) };
-  private String rawName;
 
-  public BlockLayering(Block parent, Block.Properties props, String reg) {
+  public BlockLayering(Block parent, Block.Properties props) {
     super(props);
-    this.rawName = reg;
-    this.setRegistryName(reg);
     this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1));
   }
 
   @Override
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
     builder.add(LAYERS);
-  }
-
-  public String rawName() {
-    return rawName;
   }
 
   @Override

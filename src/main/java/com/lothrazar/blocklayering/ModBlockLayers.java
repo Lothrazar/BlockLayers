@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.Registry;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
@@ -19,20 +20,17 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.registries.RegisterEvent;
 
 @Mod(ModBlockLayers.MODID) // "https://raw.githubusercontent.com/Lothrazar/DecoLayers/master/update.json")
 public class ModBlockLayers {
 
   public static final String MODID = "blocklayering";
-  @ObjectHolder(ModBlockLayers.MODID + ":layer_hay")
-  public static final Block icon = null;
+  public static Block icon = null;
   public static LayeringRegistry registry;
   public static CreativeModeTab tab = new CreativeModeTab(MODID) {
 
@@ -48,9 +46,8 @@ public class ModBlockLayers {
   }
 
   private void setup(final FMLClientSetupEvent event) {
+    //    RenderType.getTranslucent()); 
     ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.grass, RenderType.cutout());
-    //    RenderTypeLookup.setRenderLayer(LayeringRegistry.leaves_path, RenderType.getTranslucent());
-    //cutout fucked up doesnt work lol
     ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_oak, RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_acacia, RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(LayeringRegistry.leaves_birch, RenderType.cutout());
@@ -91,51 +88,61 @@ public class ModBlockLayers {
     }
 
     @SubscribeEvent
-    public static void onBlocksRegistry(RegistryEvent.Register<Block> event) {
-      IForgeRegistry<Block> r = event.getRegistry();
-      r.register(registry.createLayer(Blocks.CLAY, Material.CLAY, "clay"));
-      r.register(registry.createLayer(Blocks.SAND, Material.SAND, "sand"));
-      r.register(registry.createLayer(Blocks.RED_SAND, Material.SAND, "red_sand"));
-      r.register(registry.createLayer(Blocks.GRAVEL, Material.SAND, "gravel"));
-      r.register(registry.createLayer(Blocks.HAY_BLOCK, Material.GRASS, "hay"));// for xisumavoid
-      r.register(registry.createLayer(Blocks.SOUL_SAND, Material.SAND, "soulsand"));
-      r.register(registry.createLayer(Blocks.DIRT, Material.DIRT, "dirt"));
-      r.register(registry.createLayer(Blocks.COARSE_DIRT, Material.DIRT, "coarse_dirt"));
-      r.register(registry.createLayer(Blocks.PODZOL, Material.DIRT, "podzol"));
-      r.register(registry.createLayer(Blocks.MYCELIUM, Material.DIRT, "mycelium"));
-      r.register(registry.registerColour(registry.createLayer(Blocks.GRASS, Material.DIRT, "grass")));
-      r.register(registry.createLayer(Blocks.DIRT_PATH, Material.DIRT, "path"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_black"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_blue"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_brown"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_cyan"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_gray"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_green"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_light_blue"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_lime"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_magenta"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_orange"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_pink"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_purple"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_red"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_silver"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_white"));
-      r.register(registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, "concrete_powder_yellow"));
-      r.register(registry.registerColour(registry.createLayer(Blocks.OAK_LEAVES, Material.LEAVES, "leaves_oak", true)));
-      r.register(registry.registerColour(registry.createLayer(Blocks.BIRCH_LEAVES, Material.LEAVES, "leaves_birch", true)));
-      r.register(registry.registerColour(registry.createLayer(Blocks.SPRUCE_LEAVES, Material.LEAVES, "leaves_spruce", true)));
-      r.register(registry.registerColour(registry.createLayer(Blocks.JUNGLE_LEAVES, Material.LEAVES, "leaves_jungle", true)));
-      r.register(registry.registerColour(registry.createLayer(Blocks.DARK_OAK_LEAVES, Material.LEAVES, "leaves_big_oak", true)));
-      r.register(registry.registerColour(registry.createLayer(Blocks.ACACIA_LEAVES, Material.LEAVES, "leaves_acacia", true)));
+    public static void onBlocksRegistry(RegisterEvent event) {
+      event.register(Registry.BLOCK_REGISTRY, r -> {
+        r.register("layer_clay", registry.createLayer(Blocks.CLAY, Material.CLAY, "clay"));
+        r.register("layer_sand", registry.createLayer(Blocks.SAND, Material.SAND, "sand"));
+        r.register("layer_red_sand", registry.createLayer(Blocks.RED_SAND, Material.SAND, "red_sand"));
+        r.register("layer_gravel", registry.createLayer(Blocks.GRAVEL, Material.SAND, "gravel"));
+        BlockLayering hay = registry.createLayer(Blocks.HAY_BLOCK, Material.GRASS, "hay");
+        r.register("layer_hay", hay);// for xisumavoid
+        icon = hay;
+        r.register("layer_soulsand", registry.createLayer(Blocks.SOUL_SAND, Material.SAND, "soulsand"));
+        r.register("layer_dirt", registry.createLayer(Blocks.DIRT, Material.DIRT, "dirt"));
+        r.register("layer_coarse_dirt", registry.createLayer(Blocks.COARSE_DIRT, Material.DIRT, "coarse_dirt"));
+        r.register("layer_podzol", registry.createLayer(Blocks.PODZOL, Material.DIRT, "podzol"));
+        r.register("layer_mycelium", registry.createLayer(Blocks.MYCELIUM, Material.DIRT, "mycelium"));
+        LayeringRegistry.grass = registry.createLayer(Blocks.GRASS, Material.DIRT, "grass");
+        r.register("layer_grass", registry.registerColour(LayeringRegistry.grass));
+        r.register("layer_path", registry.createLayer(Blocks.DIRT_PATH, Material.DIRT, "path"));
+        r.register("layer_concrete_powder_black", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_blue", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_brown", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_cyan", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_gray", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_green", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_light_blue", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_lime", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_magenta", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_orange", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_pink", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_purple", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_red", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_silver", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_white", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        r.register("layer_concrete_powder_yellow", registry.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
+        LayeringRegistry.leaves_oak = registry.createLayer(Blocks.OAK_LEAVES, Material.LEAVES, "", true);
+        r.register("layer_leaves_oak", registry.registerColour(LayeringRegistry.leaves_oak));
+        LayeringRegistry.leaves_birch = registry.createLayer(Blocks.BIRCH_LEAVES, Material.LEAVES, "", true);
+        r.register("layer_leaves_birch", registry.registerColour(LayeringRegistry.leaves_birch));
+        LayeringRegistry.leaves_spruce = registry.createLayer(Blocks.SPRUCE_LEAVES, Material.LEAVES, "", true);
+        r.register("layer_leaves_spruce", registry.registerColour(LayeringRegistry.leaves_spruce));
+        LayeringRegistry.leaves_jun = registry.createLayer(Blocks.JUNGLE_LEAVES, Material.LEAVES, "", true);
+        r.register("layer_leaves_jungle", registry.registerColour(LayeringRegistry.leaves_jun));
+        LayeringRegistry.leaves_dark = registry.createLayer(Blocks.DARK_OAK_LEAVES, Material.LEAVES, "", true);
+        r.register("layer_leaves_big_oak", registry.registerColour(LayeringRegistry.leaves_dark));
+        LayeringRegistry.leaves_acacia = registry.createLayer(Blocks.ACACIA_LEAVES, Material.LEAVES, "", true);
+        r.register("layer_leaves_acacia", registry.registerColour(LayeringRegistry.leaves_acacia));
+      });
+      Item.Properties properties = new Item.Properties().tab(ModBlockLayers.tab);
+      event.register(Registry.ITEM_REGISTRY, reg -> {
+        for (Block b : LayeringRegistry.blocks) {
+          String id = b.getDescriptionId().replace(HAX, "");
+          reg.register(id, new BlockItem(b, properties));
+        }
+      });
     }
 
-    @SubscribeEvent
-    public static void onItemsRegistry(RegistryEvent.Register<Item> event) {
-      IForgeRegistry<Item> r = event.getRegistry();
-      Item.Properties properties = new Item.Properties().tab(ModBlockLayers.tab);
-      for (BlockLayering b : LayeringRegistry.blocks) {
-        r.register(new BlockItem(b, properties).setRegistryName(b.rawName()));
-      }
-    }
+    private static final String HAX = "block." + ModBlockLayers.MODID + ".";
   }
 }
