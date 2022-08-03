@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import com.lothrazar.blocklayering.block.BlockLayering;
 import com.lothrazar.blocklayering.registry.LayeringRegistry;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.Registry;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.Registry;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -61,7 +61,7 @@ public class ModBlockLayers {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void registerBlockColors(ColorHandlerEvent.Block event) {
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
       BlockColors blockColors = event.getBlockColors();
       blockColors.register((state, worldIn, pos, tintIndex) -> {
         if (pos == null || worldIn == null) {
@@ -75,7 +75,7 @@ public class ModBlockLayers {
     @SuppressWarnings("deprecation")
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void registerItemColors(ColorHandlerEvent.Item event) {
+    public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
       List<Item> items = new ArrayList<>();
       for (Block b : LayeringRegistry.blockBiomeColours) {
         items.add(Item.byBlock(b));
