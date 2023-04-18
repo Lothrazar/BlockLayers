@@ -1,20 +1,20 @@
-package com.lothrazar.blocklayering.registry;
+package com.lothrazar.blocklayering;
 
-import com.lothrazar.blocklayering.block.BlockLayering;
 import java.util.ArrayList;
 import java.util.List;
+import com.lothrazar.library.block.BlockLayering;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
 
-public class LayeringRegistry {
+public class BlockLayeringFactory {
 
-  public static BlockLayering leaves_acacia;
-  public static BlockLayering leaves_dark;
-  public static BlockLayering leaves_spruce;
-  public static BlockLayering leaves_birch;
-  public static BlockLayering leaves_jun;
-  public static BlockLayering leaves_oak;
-  public static BlockLayering grass; 
+  //  public static BlockLayering leaves_acacia;
+  //  public static BlockLayering leaves_dark;
+  //  public static BlockLayering leaves_spruce;
+  //  public static BlockLayering leaves_birch;
+  //  public static BlockLayering leaves_jun;
+  //  public static BlockLayering leaves_oak;
+  public static BlockLayering grass;
   public static List<BlockLayering> blocks = new ArrayList<BlockLayering>();
   public static List<Block> blockBiomeColours = new ArrayList<>();
 

@@ -5,18 +5,16 @@ plugins {
 }
 
 import net.minecraftforge.gradle.common.tasks.SignJar
-
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 version = "${mc_version}-${mod_version}"
 group = 'com.lothrazar.blocklayering' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'blocklayering'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    // The mappings can be changed at any time, and must be in the following format.
-  mappings channel: 'official', version: '1.19'
-
+    mappings channel: 'official', version: "${mc_version}"
+ 
     //makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -82,28 +80,38 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     
-compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
-compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
-// at runtime, use the full JEI
-runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-common:${jei_version}")
-runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    implementation fg.deobf("blank:flib-${mc_version}:${flib_version}")
+
+
+	  runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+	  
+	  
 }
 
 repositories {
+  flatDir {
+      dir 'libs'
+  }
   maven {
     // location of the maven that hosts JEI files
     name = "Progwml6 maven"
-    url = "https://dvs1.progwml6.com/files/maven/"
+    url = 'https://dvs1.progwml6.com/files/maven/'
+  }
+  maven {
+    name = "mappings"
+    url = 'https://dogforce-games.com/maven'
   }
   maven {
     // location of a maven mirror for JEI files, as a fallback
     name = "ModMaven"
-    url = "https://modmaven.k-4u.nl"
-  }    
-    maven {
-        url = "https://maven.theillusivec4.top/"
-    }
-    
+    url = 'https://modmaven.dev'
+  }
+  maven {
+  	name = "curios"
+    url = 'https://maven.theillusivec4.top/'
+  }
+  maven { url = 'https://maven.blamejared.com' }    
+  maven { url = 'https://www.cursemaven.com'  }
 }
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {
@@ -138,6 +146,9 @@ publishing {
     }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
 task signJar(type: SignJar, dependsOn: jar) {
 
     // findProperty allows us to reference the property without it existing. 

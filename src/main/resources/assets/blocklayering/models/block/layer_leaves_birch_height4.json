@@ -3,6 +3,7 @@
         "particle": "minecraft:block/birch_leaves",
         "texture": "minecraft:block/birch_leaves"
     },
+  "render_type": "cutout",
     "elements": [
         {   "from": [ 0, 0, 0 ],
             "to": [ 16, 4, 16 ],

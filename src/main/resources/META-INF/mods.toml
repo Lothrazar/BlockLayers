@@ -46,7 +46,7 @@ Add snow-layer versions of many blocks.
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[33,)" #mandatory
+    versionRange="[45,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -55,6 +55,12 @@ Add snow-layer versions of many blocks.
 [[dependencies.blocklayering]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.2,)"
+    versionRange="[1.19.4,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.blocklayering]]
+    modId="flib"
+    mandatory=true
+    versionRange="[0.0.4,)"
     ordering="NONE"
     side="BOTH"

@@ -3,6 +3,7 @@
         "particle": "minecraft:block/grass_block_top",
         "texture": "minecraft:block/grass_block_top"
     },
+  "render_type": "cutout",
     "elements": [
         {   "from": [ 0, 0, 0 ],
             "to": [ 16, 8, 16 ],

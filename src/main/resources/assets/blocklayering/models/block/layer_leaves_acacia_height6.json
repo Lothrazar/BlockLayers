@@ -3,6 +3,7 @@
         "particle": "minecraft:block/acacia_leaves",
         "texture": "minecraft:block/acacia_leaves"
     },
+  "render_type": "cutout",
     "elements": [
         {   "from": [ 0, 0, 0 ],
             "to": [ 16, 6, 16 ],

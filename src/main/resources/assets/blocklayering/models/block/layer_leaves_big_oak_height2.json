@@ -3,6 +3,7 @@
         "particle": "minecraft:block/dark_oak_leaves",
         "texture": "minecraft:block/dark_oak_leaves"
     },
+  "render_type": "cutout",
     "elements": [
         {   "from": [ 0, 0, 0 ],
             "to": [ 16, 2, 16 ],
