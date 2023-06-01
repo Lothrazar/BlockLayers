@@ -8,13 +8,6 @@ import net.minecraft.world.level.material.Material;
 
 public class BlockLayeringFactory {
 
-  //  public static BlockLayering leaves_acacia;
-  //  public static BlockLayering leaves_dark;
-  //  public static BlockLayering leaves_spruce;
-  //  public static BlockLayering leaves_birch;
-  //  public static BlockLayering leaves_jun;
-  //  public static BlockLayering leaves_oak;
-  public static BlockLayering grass;
   public static List<BlockLayering> blocks = new ArrayList<BlockLayering>();
   public static List<Block> blockBiomeColours = new ArrayList<>();
 

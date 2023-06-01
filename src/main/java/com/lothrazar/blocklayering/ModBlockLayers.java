@@ -76,8 +76,7 @@ public class ModBlockLayers {
         r.register("layer_coarse_dirt", factory.createLayer(Blocks.COARSE_DIRT, Material.DIRT, "coarse_dirt"));
         r.register("layer_podzol", factory.createLayer(Blocks.PODZOL, Material.DIRT, "podzol"));
         r.register("layer_mycelium", factory.createLayer(Blocks.MYCELIUM, Material.DIRT, "mycelium"));
-        BlockLayeringFactory.grass = factory.createLayer(Blocks.GRASS, Material.DIRT, "grass");
-        r.register("layer_grass", factory.registerColour(BlockLayeringFactory.grass));
+        r.register("layer_grass", factory.registerColour(factory.createLayer(Blocks.GRASS, Material.DIRT, "grass")));
         r.register("layer_path", factory.createLayer(Blocks.DIRT_PATH, Material.DIRT, "path"));
         r.register("layer_concrete_powder_black", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
         r.register("layer_concrete_powder_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, Material.SAND, ""));
