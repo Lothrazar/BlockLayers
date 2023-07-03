@@ -20,8 +20,9 @@ public class BlockLayeringFactory {
   }
 
   @SuppressWarnings("deprecation")
-  public BlockLayering createLayer(Block parent,  String name, boolean notsolid) {
+  public BlockLayering createLayer(Block parent,  String name, boolean notsolid) { 
     Block.Properties props = Block.Properties.of();
+ 
     props.strength(parent.defaultBlockState().destroySpeed);
     props.sound(parent.getSoundType(parent.defaultBlockState()));
     if (notsolid) {

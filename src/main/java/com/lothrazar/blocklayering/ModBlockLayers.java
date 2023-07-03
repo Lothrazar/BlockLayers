@@ -94,29 +94,18 @@ public class ModBlockLayers {
         r.register("layer_concrete_powder_silver", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
         r.register("layer_concrete_powder_white", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
         r.register("layer_concrete_powder_yellow", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        BlockLayering leaves_oak = factory.createLayer(Blocks.OAK_LEAVES, "", true);
-        r.register("layer_leaves_oak", factory.registerColour(leaves_oak));
-        BlockLayering leaves_birch = factory.createLayer(Blocks.BIRCH_LEAVES, "", true);
-        r.register("layer_leaves_birch", factory.registerColour(leaves_birch));
-        BlockLayering leaves_spruce = factory.createLayer(Blocks.SPRUCE_LEAVES, "", true);
-        r.register("layer_leaves_spruce", factory.registerColour(leaves_spruce));
-        BlockLayering leaves_jun = factory.createLayer(Blocks.JUNGLE_LEAVES, "", true);
-        r.register("layer_leaves_jungle", factory.registerColour(leaves_jun));
-        BlockLayering leaves_dark = factory.createLayer(Blocks.DARK_OAK_LEAVES, "", true);
-        r.register("layer_leaves_big_oak", factory.registerColour(leaves_dark));
-        BlockLayering leaves_acacia = factory.createLayer(Blocks.ACACIA_LEAVES, "", true);
-        r.register("layer_leaves_acacia", factory.registerColour(leaves_acacia));
-        //new
-        BlockLayering leaves_mangrove = factory.createLayer(Blocks.MANGROVE_LEAVES, "", true);
-        r.register("layer_leaves_mangrove", factory.registerColour(leaves_mangrove));
-        /*
-        BlockLayering leaves_azalea = factory.createLayer(Blocks.AZALEA_LEAVES, "", true);
-        r.register("layer_leaves_azalea", factory.registerColour(leaves_azalea));
-        BlockLayering leaves_flowering_azalea = factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, "", true);
-        r.register("layer_leaves_flowering_azalea", factory.registerColour(leaves_flowering_azalea));
-        BlockLayering leaves_cherry = factory.createLayer(Blocks.CHERRY_LEAVES, "", true);
-        r.register("layer_leaves_cherry", factory.registerColour(leaves_cherry));
-        */
+        //leaves with biome filter
+        r.register("layer_leaves_oak", factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, "", true)));
+        r.register("layer_leaves_birch", factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, "", true)));
+        r.register("layer_leaves_spruce", factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, "", true)));
+        r.register("layer_leaves_jungle", factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, "", true)));
+        r.register("layer_leaves_big_oak", factory.registerColour(factory.createLayer(Blocks.DARK_OAK_LEAVES, "", true)));
+        r.register("layer_leaves_acacia", factory.registerColour(factory.createLayer(Blocks.ACACIA_LEAVES, "", true)));
+        //new 
+        r.register("layer_leaves_mangrove", factory.registerColour(factory.createLayer(Blocks.MANGROVE_LEAVES, "", true)));
+        r.register("layer_leaves_cherry", factory.createLayer(Blocks.CHERRY_LEAVES, "", false));
+        /* BlockLayering leaves_azalea = factory.createLayer(Blocks.AZALEA_LEAVES, "", true); r.register("layer_leaves_azalea", factory.registerColour(leaves_azalea)); BlockLayering
+         * leaves_flowering_azalea = factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, "", true); r.register("layer_leaves_flowering_azalea", factory.registerColour(leaves_flowering_azalea)); */
         // 
       });
       Item.Properties properties = new Item.Properties();

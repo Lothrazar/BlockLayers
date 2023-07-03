@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:cherry_leaves",
+	  "data":0
+    }
+  },
+  "result": {
+    "item": "blocklayering:layer_leaves_cherry",
+    "count": 16
+  }
+}
