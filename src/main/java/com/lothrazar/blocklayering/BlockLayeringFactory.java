@@ -15,12 +15,12 @@ public class BlockLayeringFactory {
     return b;
   }
 
-  public BlockLayering createLayer(Block parent,  String name) {
-    return createLayer(parent,  name, false);
+  public BlockLayering createLayer(Block parent) {
+    return createLayer(parent,  false);
   }
 
   @SuppressWarnings("deprecation")
-  public BlockLayering createLayer(Block parent,  String name, boolean notsolid) { 
+  public BlockLayering createLayer(Block parent,    boolean notsolid) { 
     Block.Properties props = Block.Properties.of();
  
     props.strength(parent.defaultBlockState().destroySpeed);

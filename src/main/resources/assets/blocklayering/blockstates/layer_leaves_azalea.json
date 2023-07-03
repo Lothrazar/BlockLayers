@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "layers=1":  { "model": "blocklayering:block/layer_leaves_azalea_height2" },
+        "layers=2":  { "model": "blocklayering:block/layer_leaves_azalea_height4" },
+        "layers=3":  { "model": "blocklayering:block/layer_leaves_azalea_height6" },
+        "layers=4":  { "model": "blocklayering:block/layer_leaves_azalea_height8" },
+        "layers=5":  { "model": "blocklayering:block/layer_leaves_azalea_height10" },
+        "layers=6":  { "model": "blocklayering:block/layer_leaves_azalea_height12" },
+        "layers=7":  { "model": "blocklayering:block/layer_leaves_azalea_height14" },
+        "layers=8":  { "model": "minecraft:block/azalea_leaves" }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:azalea_leaves"
+    }
+  },
+  "result": {
+    "item": "blocklayering:layer_leaves_azalea",
+    "count": 16
+  }
+}

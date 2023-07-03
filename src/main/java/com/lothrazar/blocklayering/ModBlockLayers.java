@@ -64,48 +64,48 @@ public class ModBlockLayers {
     @SubscribeEvent
     public static void onBlocksRegistry(RegisterEvent event) {
       event.register(Registries.BLOCK, r -> {
-        r.register("layer_clay", factory.createLayer(Blocks.CLAY, "clay"));
-        r.register("layer_sand", factory.createLayer(Blocks.SAND, "sand"));
-        r.register("layer_red_sand", factory.createLayer(Blocks.RED_SAND, "red_sand"));
-        r.register("layer_gravel", factory.createLayer(Blocks.GRAVEL, "gravel"));
-        BlockLayering hay = factory.createLayer(Blocks.HAY_BLOCK, "hay");
+        r.register("layer_clay", factory.createLayer(Blocks.CLAY));
+        r.register("layer_sand", factory.createLayer(Blocks.SAND));
+        r.register("layer_red_sand", factory.createLayer(Blocks.RED_SAND));
+        r.register("layer_gravel", factory.createLayer(Blocks.GRAVEL));
+        BlockLayering hay = factory.createLayer(Blocks.HAY_BLOCK);
         r.register("layer_hay", hay);// for xisumavoid
         icon = hay;
-        r.register("layer_soulsand", factory.createLayer(Blocks.SOUL_SAND, "soulsand"));
-        r.register("layer_dirt", factory.createLayer(Blocks.DIRT, "dirt"));
-        r.register("layer_coarse_dirt", factory.createLayer(Blocks.COARSE_DIRT, "coarse_dirt"));
-        r.register("layer_podzol", factory.createLayer(Blocks.PODZOL, "podzol"));
-        r.register("layer_mycelium", factory.createLayer(Blocks.MYCELIUM, "mycelium"));
-        r.register("layer_grass", factory.registerColour(factory.createLayer(Blocks.GRASS, "grass")));
-        r.register("layer_path", factory.createLayer(Blocks.DIRT_PATH, "path"));
-        r.register("layer_concrete_powder_black", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_brown", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_cyan", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_gray", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_green", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_light_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_lime", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_magenta", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_orange", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_pink", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_purple", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_red", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_silver", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_white", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
-        r.register("layer_concrete_powder_yellow", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER, ""));
+        r.register("layer_soulsand", factory.createLayer(Blocks.SOUL_SAND));
+        r.register("layer_dirt", factory.createLayer(Blocks.DIRT));
+        r.register("layer_coarse_dirt", factory.createLayer(Blocks.COARSE_DIRT));
+        r.register("layer_podzol", factory.createLayer(Blocks.PODZOL));
+        r.register("layer_mycelium", factory.createLayer(Blocks.MYCELIUM));
+        r.register("layer_grass", factory.registerColour(factory.createLayer(Blocks.GRASS)));
+        r.register("layer_path", factory.createLayer(Blocks.DIRT_PATH));
+        r.register("layer_concrete_powder_black", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_brown", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_cyan", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_gray", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_green", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_light_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_lime", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_magenta", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_orange", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_pink", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_purple", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_red", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_silver", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_white", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register("layer_concrete_powder_yellow", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
         //leaves with biome filter
-        r.register("layer_leaves_oak", factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, "", true)));
-        r.register("layer_leaves_birch", factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, "", true)));
-        r.register("layer_leaves_spruce", factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, "", true)));
-        r.register("layer_leaves_jungle", factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, "", true)));
-        r.register("layer_leaves_big_oak", factory.registerColour(factory.createLayer(Blocks.DARK_OAK_LEAVES, "", true)));
-        r.register("layer_leaves_acacia", factory.registerColour(factory.createLayer(Blocks.ACACIA_LEAVES, "", true)));
+        r.register("layer_leaves_oak", factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, true)));
+        r.register("layer_leaves_birch", factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
+        r.register("layer_leaves_spruce", factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
+        r.register("layer_leaves_jungle", factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
+        r.register("layer_leaves_big_oak", factory.registerColour(factory.createLayer(Blocks.DARK_OAK_LEAVES, true)));
+        r.register("layer_leaves_acacia", factory.registerColour(factory.createLayer(Blocks.ACACIA_LEAVES, true)));
         //new 
-        r.register("layer_leaves_mangrove", factory.registerColour(factory.createLayer(Blocks.MANGROVE_LEAVES, "", true)));
-        r.register("layer_leaves_cherry", factory.createLayer(Blocks.CHERRY_LEAVES, "", false));
-        /* BlockLayering leaves_azalea = factory.createLayer(Blocks.AZALEA_LEAVES, "", true); r.register("layer_leaves_azalea", factory.registerColour(leaves_azalea)); BlockLayering
-         * leaves_flowering_azalea = factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, "", true); r.register("layer_leaves_flowering_azalea", factory.registerColour(leaves_flowering_azalea)); */
+        r.register("layer_leaves_mangrove", factory.registerColour(factory.createLayer(Blocks.MANGROVE_LEAVES, true)));
+        r.register("layer_leaves_cherry", factory.createLayer(Blocks.CHERRY_LEAVES, true));
+        r.register("layer_leaves_azalea", factory.registerColour(factory.createLayer(Blocks.AZALEA_LEAVES, true)));
+        r.register("layer_leaves_flowering_azalea", factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, true));
         // 
       });
       Item.Properties properties = new Item.Properties();
