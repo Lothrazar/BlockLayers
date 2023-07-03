@@ -109,12 +109,14 @@ public class ModBlockLayers {
         //new
         BlockLayering leaves_mangrove = factory.createLayer(Blocks.MANGROVE_LEAVES, "", true);
         r.register("layer_leaves_mangrove", factory.registerColour(leaves_mangrove));
+        /*
         BlockLayering leaves_azalea = factory.createLayer(Blocks.AZALEA_LEAVES, "", true);
         r.register("layer_leaves_azalea", factory.registerColour(leaves_azalea));
         BlockLayering leaves_flowering_azalea = factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, "", true);
         r.register("layer_leaves_flowering_azalea", factory.registerColour(leaves_flowering_azalea));
         BlockLayering leaves_cherry = factory.createLayer(Blocks.CHERRY_LEAVES, "", true);
         r.register("layer_leaves_cherry", factory.registerColour(leaves_cherry));
+        */
         // 
       });
       Item.Properties properties = new Item.Properties();

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:mangrove_leaves",
+	  "data":0
+    }
+  },
+  "result": {
+    "item": "blocklayering:layer_leaves_mangrove",
+    "count": 16
+  }
+}
