@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:packed_mud"
+    }
+  },
+  "result": {
+    "item": "blocklayering:layer_packed_mud",
+    "count": 16
+  }
+}

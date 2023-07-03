@@ -95,6 +95,8 @@ public class ModBlockLayers {
         r.register("layer_concrete_powder_white", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
         r.register("layer_concrete_powder_yellow", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
         //leaves with biome filter
+        r.register("layer_mud", factory.createLayer(Blocks.MUD, true));
+        r.register("layer_packed_mud", factory.createLayer(Blocks.PACKED_MUD, true));
         r.register("layer_leaves_oak", factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, true)));
         r.register("layer_leaves_birch", factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
         r.register("layer_leaves_spruce", factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
