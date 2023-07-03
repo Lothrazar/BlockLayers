@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.lothrazar.library.block.BlockLayering;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.Material;
 
 public class BlockLayeringFactory {
 
@@ -16,13 +15,13 @@ public class BlockLayeringFactory {
     return b;
   }
 
-  public BlockLayering createLayer(Block parent, Material mat, String name) {
-    return createLayer(parent, mat, name, false);
+  public BlockLayering createLayer(Block parent,  String name) {
+    return createLayer(parent,  name, false);
   }
 
   @SuppressWarnings("deprecation")
-  public BlockLayering createLayer(Block parent, Material mat, String name, boolean notsolid) {
-    Block.Properties props = Block.Properties.of(mat);
+  public BlockLayering createLayer(Block parent,  String name, boolean notsolid) {
+    Block.Properties props = Block.Properties.of();
     props.strength(parent.defaultBlockState().destroySpeed);
     props.sound(parent.getSoundType(parent.defaultBlockState()));
     if (notsolid) {
