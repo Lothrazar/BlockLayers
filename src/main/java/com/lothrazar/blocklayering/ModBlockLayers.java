@@ -14,12 +14,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(ModBlockLayers.MODID) // "https://raw.githubusercontent.com/Lothrazar/DecoLayers/master/update.json")
 public class ModBlockLayers {
@@ -32,7 +33,7 @@ public class ModBlockLayers {
     factory = new BlockLayeringFactory();
   }
 
-  @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+  @EventBusSubscriber(modid = ModBlockLayers.MODID) // , bus = EventBusSubscriber.Bus.MOD)
   public static class Registry {
 
     @OnlyIn(Dist.CLIENT)
@@ -64,63 +65,63 @@ public class ModBlockLayers {
     @SubscribeEvent
     public static void onBlocksRegistry(RegisterEvent event) {
       event.register(Registries.BLOCK, r -> {
-        r.register("layer_clay", factory.createLayer(Blocks.CLAY));
-        r.register("layer_sand", factory.createLayer(Blocks.SAND));
-        r.register("layer_red_sand", factory.createLayer(Blocks.RED_SAND));
-        r.register("layer_gravel", factory.createLayer(Blocks.GRAVEL));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_clay"), factory.createLayer(Blocks.CLAY));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_sand"), factory.createLayer(Blocks.SAND));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_red_sand"), factory.createLayer(Blocks.RED_SAND));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_gravel"), factory.createLayer(Blocks.GRAVEL));
         BlockLayering hay = factory.createLayer(Blocks.HAY_BLOCK);
-        r.register("layer_hay", hay);// for xisumavoid
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_hay"), hay);// for xisumavoid
         icon = hay;
-        r.register("layer_soulsand", factory.createLayer(Blocks.SOUL_SAND));
-        r.register("layer_dirt", factory.createLayer(Blocks.DIRT));
-        r.register("layer_coarse_dirt", factory.createLayer(Blocks.COARSE_DIRT));
-        r.register("layer_podzol", factory.createLayer(Blocks.PODZOL));
-        r.register("layer_mycelium", factory.createLayer(Blocks.MYCELIUM));
-        r.register("layer_grass", factory.registerColour(factory.createLayer(Blocks.GRASS)));
-        r.register("layer_path", factory.createLayer(Blocks.DIRT_PATH));
-        r.register("layer_concrete_powder_black", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_brown", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_cyan", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_gray", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_green", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_light_blue", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_lime", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_magenta", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_orange", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_pink", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_purple", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_red", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_silver", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_white", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register("layer_concrete_powder_yellow", factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_soulsand"), factory.createLayer(Blocks.SOUL_SAND));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_dirt"), factory.createLayer(Blocks.DIRT));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_coarse_dirt"), factory.createLayer(Blocks.COARSE_DIRT));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_podzol"), factory.createLayer(Blocks.PODZOL));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_mycelium"), factory.createLayer(Blocks.MYCELIUM));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_grass"), factory.registerColour(factory.createLayer(Blocks.GRASS_BLOCK)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_path"), factory.createLayer(Blocks.DIRT_PATH));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_black"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_blue"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_brown"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_cyan"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_gray"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_green"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_light_blue"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_lime"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_magenta"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_orange"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_pink"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_purple"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_red"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_silver"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_white"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_yellow"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
         //leaves with biome filter
-        r.register("layer_mud", factory.createLayer(Blocks.MUD, true));
-        r.register("layer_packed_mud", factory.createLayer(Blocks.PACKED_MUD, true));
-        r.register("layer_leaves_oak", factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, true)));
-        r.register("layer_leaves_birch", factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
-        r.register("layer_leaves_spruce", factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
-        r.register("layer_leaves_jungle", factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
-        r.register("layer_leaves_big_oak", factory.registerColour(factory.createLayer(Blocks.DARK_OAK_LEAVES, true)));
-        r.register("layer_leaves_acacia", factory.registerColour(factory.createLayer(Blocks.ACACIA_LEAVES, true)));
-        //new 
-        r.register("layer_leaves_mangrove", factory.registerColour(factory.createLayer(Blocks.MANGROVE_LEAVES, true)));
-        r.register("layer_leaves_cherry", factory.createLayer(Blocks.CHERRY_LEAVES, true));
-        r.register("layer_leaves_azalea", factory.registerColour(factory.createLayer(Blocks.AZALEA_LEAVES, true)));
-        r.register("layer_leaves_flowering_azalea", factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, true));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_mud"), factory.createLayer(Blocks.MUD, true));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_packed_mud"), factory.createLayer(Blocks.PACKED_MUD, true));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_oak"), factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_birch"), factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_spruce"), factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_jungle"), factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_big_oak"), factory.registerColour(factory.createLayer(Blocks.DARK_OAK_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_acacia"), factory.registerColour(factory.createLayer(Blocks.ACACIA_LEAVES, true)));
+        //new
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_mangrove"), factory.registerColour(factory.createLayer(Blocks.MANGROVE_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_cherry"), factory.createLayer(Blocks.CHERRY_LEAVES, true));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_azalea"), factory.registerColour(factory.createLayer(Blocks.AZALEA_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_flowering_azalea"), factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, true));
         // 
       });
       Item.Properties properties = new Item.Properties();
       event.register(Registries.ITEM, reg -> {
         for (Block b : BlockLayeringFactory.blocks) {
           String id = b.getDescriptionId().replace(HAX, "");
-          reg.register(id, new BlockItem(b, properties));
+          reg.register(ResourceLocation.fromNamespaceAndPath(MODID, id), new BlockItem(b, properties));
         }
       });
     }
 
     private static final String HAX = "block." + ModBlockLayers.MODID + ".";
-    private static final ResourceKey<CreativeModeTab> TAB = ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(ModBlockLayers.MODID, "tab"));
+    private static final ResourceKey<CreativeModeTab> TAB = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(ModBlockLayers.MODID, "tab"));
 
     @SubscribeEvent
     public static void onCreativeModeTabRegister(RegisterEvent event) {
@@ -133,7 +134,7 @@ public class ModBlockLayers {
               }
             }).build());
       });
-      //      event.registerCreativeModeTab(new ResourceLocation(ModBlockLayers.MODID, "tab"), builder -> builder
+      //      event.registerCreativeModeTab(ResourceLocation.fromNamespaceAndPath(ModBlockLayers.MODID, "tab"), builder -> builder
       //          .title(Component.translatable("itemGroup." + ModBlockLayers.MODID))
       //          .icon(() -> new ItemStack(icon))
       //          .displayItems((enabledFlags, populator) -> {

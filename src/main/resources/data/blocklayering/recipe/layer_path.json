@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:dirt_path"
+    }
+  },
+  "result": {
+    "id": "blocklayering:layer_path",
+    "count": 16
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:spruce_leaves",
+	  "data":1
+    }
+  },
+  "result": {
+    "id": "blocklayering:layer_leaves_spruce",
+    "count": 16
+  }
+}

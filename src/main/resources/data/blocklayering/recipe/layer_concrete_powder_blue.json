@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:blue_concrete_powder"
+    }
+  },
+  "result": {
+    "id": "blocklayering:layer_concrete_powder_blue",
+    "count": 16
+  }
+}

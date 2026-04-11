@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:jungle_leaves",
+	  "data":3
+    }
+  },
+  "result": {
+    "id": "blocklayering:layer_leaves_jungle",
+    "count": 16
+  }
+}

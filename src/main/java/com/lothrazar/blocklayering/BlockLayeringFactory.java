@@ -24,7 +24,7 @@ public class BlockLayeringFactory {
     Block.Properties props = Block.Properties.of();
  
     props.strength(parent.defaultBlockState().destroySpeed);
-    props.sound(parent.getSoundType(parent.defaultBlockState()));
+    props.sound(parent.soundType); // .getSoundType(parent.defaultBlockState()) !!
     if (notsolid) {
       props.noOcclusion();
     }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  ",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:mycelium"
+    }
+  },
+  "result": {
+    "id": "blocklayering:layer_mycelium",
+    "count": 16
+  }
+}
