@@ -8,10 +8,10 @@ import net.minecraft.world.level.block.Block;
 public class BlockLayeringFactory {
 
   public static List<BlockLayering> blocks = new ArrayList<BlockLayering>();
-  public static List<Block> blockBiomeColours = new ArrayList<>();
+  public static List<Block> blockBiomes = new ArrayList<>();
 
-  public BlockLayering registerColour(BlockLayering b) {
-    blockBiomeColours.add(b);
+  public BlockLayering register(BlockLayering b) {
+    blockBiomes.add(b);
     return b;
   }
 

@@ -45,14 +45,14 @@ public class ModBlockLayers {
         }
         tintIndex = BiomeColors.getAverageGrassColor(worldIn, pos);
         return tintIndex;
-      }, BlockLayeringFactory.blockBiomeColours.toArray(new Block[0]));
+      }, BlockLayeringFactory.blockBiomes.toArray(new Block[0]));
     }
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
       List<Item> items = new ArrayList<>();
-      for (Block b : BlockLayeringFactory.blockBiomeColours) {
+      for (Block b : BlockLayeringFactory.blockBiomes) {
         items.add(b.asItem());
       }
       //      ItemColors blockColors = event.getItemColors();
@@ -77,7 +77,7 @@ public class ModBlockLayers {
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_coarse_dirt"), factory.createLayer(Blocks.COARSE_DIRT));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_podzol"), factory.createLayer(Blocks.PODZOL));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_mycelium"), factory.createLayer(Blocks.MYCELIUM));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_grass"), factory.registerColour(factory.createLayer(Blocks.GRASS_BLOCK)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_grass"), factory.register(factory.createLayer(Blocks.GRASS_BLOCK)));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_path"), factory.createLayer(Blocks.DIRT_PATH));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_black"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_concrete_powder_blue"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
@@ -98,7 +98,7 @@ public class ModBlockLayers {
         //leaves with biome filter
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_mud"), factory.createLayer(Blocks.MUD, true));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_packed_mud"), factory.createLayer(Blocks.PACKED_MUD, true));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_oak"), factory.registerColour(factory.createLayer(Blocks.OAK_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_oak"), factory.register(factory.createLayer(Blocks.OAK_LEAVES, true)));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_birch"), factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_spruce"), factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_jungle"), factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
