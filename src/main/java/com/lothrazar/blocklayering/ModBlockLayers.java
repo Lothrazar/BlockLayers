@@ -99,15 +99,15 @@ public class ModBlockLayers {
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_mud"), factory.createLayer(Blocks.MUD, true));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_packed_mud"), factory.createLayer(Blocks.PACKED_MUD, true));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_oak"), factory.register(factory.createLayer(Blocks.OAK_LEAVES, true)));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_birch"), factory.registerColour(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_spruce"), factory.registerColour(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_jungle"), factory.registerColour(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_big_oak"), factory.registerColour(factory.createLayer(Blocks.DARK_OAK_LEAVES, true)));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_acacia"), factory.registerColour(factory.createLayer(Blocks.ACACIA_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_birch"), factory.register(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_spruce"), factory.register(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_jungle"), factory.register(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_big_oak"), factory.register(factory.createLayer(Blocks.DARK_OAK_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_acacia"), factory.register(factory.createLayer(Blocks.ACACIA_LEAVES, true)));
         //new
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_mangrove"), factory.registerColour(factory.createLayer(Blocks.MANGROVE_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_mangrove"), factory.register(factory.createLayer(Blocks.MANGROVE_LEAVES, true)));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_cherry"), factory.createLayer(Blocks.CHERRY_LEAVES, true));
-        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_azalea"), factory.registerColour(factory.createLayer(Blocks.AZALEA_LEAVES, true)));
+        r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_azalea"), factory.register(factory.createLayer(Blocks.AZALEA_LEAVES, true)));
         r.register(ResourceLocation.fromNamespaceAndPath(MODID, "layer_leaves_flowering_azalea"), factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, true));
         // 
       });
