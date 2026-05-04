@@ -8,10 +8,10 @@ import net.minecraft.world.level.block.Block;
 public class BlockLayeringFactory {
 
   public static List<BlockLayering> blocks = new ArrayList<BlockLayering>();
-  public static List<Block> blockBiomeColours = new ArrayList<>();
+  public static List<Block> blockBiomes = new ArrayList<>();
 
-  public BlockLayering registerColour(BlockLayering b) {
-    blockBiomeColours.add(b);
+  public BlockLayering register(BlockLayering b) {
+    blockBiomes.add(b);
     return b;
   }
 
@@ -24,7 +24,7 @@ public class BlockLayeringFactory {
     Block.Properties props = Block.Properties.of();
  
     props.strength(parent.defaultBlockState().destroySpeed);
-    props.sound(parent.getSoundType(parent.defaultBlockState()));
+    props.sound(parent.soundType); // .getSoundType(parent.defaultBlockState()) !!
     if (notsolid) {
       props.noOcclusion();
     }
