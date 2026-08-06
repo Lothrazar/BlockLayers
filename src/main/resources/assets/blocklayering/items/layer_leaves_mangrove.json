@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "blocklayering:item/layer_leaves_mangrove",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 5279782
+      }
+    ]
+  }
+}
