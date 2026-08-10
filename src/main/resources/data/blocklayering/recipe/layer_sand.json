@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:sand",
-	  "data":0
-    }
+    "c": "minecraft:sand"
   },
   "result": {
     "id": "blocklayering:layer_sand",

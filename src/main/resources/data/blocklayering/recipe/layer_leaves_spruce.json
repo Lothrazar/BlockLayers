@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:spruce_leaves",
-	  "data":1
-    }
+    "c": "minecraft:spruce_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_spruce",

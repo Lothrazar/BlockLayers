@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:grass_block",
-	  "data":0
-    }
+    "c": "minecraft:grass_block"
   },
   "result": {
     "id": "blocklayering:layer_grass",

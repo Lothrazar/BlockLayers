@@ -17,8 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -39,7 +37,6 @@ public class ModBlockLayers {
   @EventBusSubscriber(modid = ModBlockLayers.MODID) // , bus = EventBusSubscriber.Bus.MOD)
   public static class Registry {
 
-    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.BlockTintSources event) {
       BlockTintSource biomeGrassTint = new BlockTintSource() {
@@ -65,57 +62,100 @@ public class ModBlockLayers {
     @SubscribeEvent
     public static void onBlocksRegistry(RegisterEvent event) {
       event.register(Registries.BLOCK, r -> {
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_clay"), factory.createLayer(Blocks.CLAY));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_sand"), factory.createLayer(Blocks.SAND));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_red_sand"), factory.createLayer(Blocks.RED_SAND));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_gravel"), factory.createLayer(Blocks.GRAVEL));
-        BlockLayering hay = factory.createLayer(Blocks.HAY_BLOCK);
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_hay"), hay);// for xisumavoid
+        Identifier idClay = Identifier.fromNamespaceAndPath(MODID, "layer_clay");
+        r.register(idClay, factory.createLayer(idClay, Blocks.CLAY));
+        Identifier idSand = Identifier.fromNamespaceAndPath(MODID, "layer_sand");
+        r.register(idSand, factory.createLayer(idSand, Blocks.SAND));
+        Identifier idRedSand = Identifier.fromNamespaceAndPath(MODID, "layer_red_sand");
+        r.register(idRedSand, factory.createLayer(idRedSand, Blocks.RED_SAND));
+        Identifier idGravel = Identifier.fromNamespaceAndPath(MODID, "layer_gravel");
+        r.register(idGravel, factory.createLayer(idGravel, Blocks.GRAVEL));
+        Identifier idHay = Identifier.fromNamespaceAndPath(MODID, "layer_hay");
+        BlockLayering hay = factory.createLayer(idHay, Blocks.HAY_BLOCK);
+        r.register(idHay, hay);// for xisumavoid
         icon = hay;
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_soulsand"), factory.createLayer(Blocks.SOUL_SAND));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_dirt"), factory.createLayer(Blocks.DIRT));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_coarse_dirt"), factory.createLayer(Blocks.COARSE_DIRT));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_podzol"), factory.createLayer(Blocks.PODZOL));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_mycelium"), factory.createLayer(Blocks.MYCELIUM));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_grass"), factory.register(factory.createLayer(Blocks.GRASS_BLOCK)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_path"), factory.createLayer(Blocks.DIRT_PATH));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_black"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_blue"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_brown"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_cyan"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_gray"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_green"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_light_blue"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_lime"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_magenta"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_orange"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_pink"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_purple"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_red"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_silver"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_white"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_yellow"), factory.createLayer(Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idSoulsand = Identifier.fromNamespaceAndPath(MODID, "layer_soulsand");
+        r.register(idSoulsand, factory.createLayer(idSoulsand, Blocks.SOUL_SAND));
+        Identifier idDirt = Identifier.fromNamespaceAndPath(MODID, "layer_dirt");
+        r.register(idDirt, factory.createLayer(idDirt, Blocks.DIRT));
+        Identifier idCoarseDirt = Identifier.fromNamespaceAndPath(MODID, "layer_coarse_dirt");
+        r.register(idCoarseDirt, factory.createLayer(idCoarseDirt, Blocks.COARSE_DIRT));
+        Identifier idPodzol = Identifier.fromNamespaceAndPath(MODID, "layer_podzol");
+        r.register(idPodzol, factory.createLayer(idPodzol, Blocks.PODZOL));
+        Identifier idMycelium = Identifier.fromNamespaceAndPath(MODID, "layer_mycelium");
+        r.register(idMycelium, factory.createLayer(idMycelium, Blocks.MYCELIUM));
+        Identifier idGrass = Identifier.fromNamespaceAndPath(MODID, "layer_grass");
+        r.register(idGrass, factory.register(factory.createLayer(idGrass, Blocks.GRASS_BLOCK)));
+        Identifier idPath = Identifier.fromNamespaceAndPath(MODID, "layer_path");
+        r.register(idPath, factory.createLayer(idPath, Blocks.DIRT_PATH));
+        Identifier idConcreteBlack = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_black");
+        r.register(idConcreteBlack, factory.createLayer(idConcreteBlack, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteBlue = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_blue");
+        r.register(idConcreteBlue, factory.createLayer(idConcreteBlue, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteBrown = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_brown");
+        r.register(idConcreteBrown, factory.createLayer(idConcreteBrown, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteCyan = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_cyan");
+        r.register(idConcreteCyan, factory.createLayer(idConcreteCyan, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteGray = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_gray");
+        r.register(idConcreteGray, factory.createLayer(idConcreteGray, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteGreen = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_green");
+        r.register(idConcreteGreen, factory.createLayer(idConcreteGreen, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteLightBlue = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_light_blue");
+        r.register(idConcreteLightBlue, factory.createLayer(idConcreteLightBlue, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteLime = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_lime");
+        r.register(idConcreteLime, factory.createLayer(idConcreteLime, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteMagenta = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_magenta");
+        r.register(idConcreteMagenta, factory.createLayer(idConcreteMagenta, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteOrange = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_orange");
+        r.register(idConcreteOrange, factory.createLayer(idConcreteOrange, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcretePink = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_pink");
+        r.register(idConcretePink, factory.createLayer(idConcretePink, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcretePurple = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_purple");
+        r.register(idConcretePurple, factory.createLayer(idConcretePurple, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteRed = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_red");
+        r.register(idConcreteRed, factory.createLayer(idConcreteRed, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteSilver = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_silver");
+        r.register(idConcreteSilver, factory.createLayer(idConcreteSilver, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteWhite = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_white");
+        r.register(idConcreteWhite, factory.createLayer(idConcreteWhite, Blocks.BLACK_CONCRETE_POWDER));
+        Identifier idConcreteYellow = Identifier.fromNamespaceAndPath(MODID, "layer_concrete_powder_yellow");
+        r.register(idConcreteYellow, factory.createLayer(idConcreteYellow, Blocks.BLACK_CONCRETE_POWDER));
         //leaves with biome filter
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_mud"), factory.createLayer(Blocks.MUD, true));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_packed_mud"), factory.createLayer(Blocks.PACKED_MUD, true));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_oak"), factory.register(factory.createLayer(Blocks.OAK_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_birch"), factory.register(factory.createLayer(Blocks.BIRCH_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_spruce"), factory.register(factory.createLayer(Blocks.SPRUCE_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_jungle"), factory.register(factory.createLayer(Blocks.JUNGLE_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_big_oak"), factory.register(factory.createLayer(Blocks.DARK_OAK_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_acacia"), factory.register(factory.createLayer(Blocks.ACACIA_LEAVES, true)));
+        Identifier idMud = Identifier.fromNamespaceAndPath(MODID, "layer_mud");
+        r.register(idMud, factory.createLayer(idMud, Blocks.MUD, true));
+        Identifier idPackedMud = Identifier.fromNamespaceAndPath(MODID, "layer_packed_mud");
+        r.register(idPackedMud, factory.createLayer(idPackedMud, Blocks.PACKED_MUD, true));
+        Identifier idLeavesOak = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_oak");
+        r.register(idLeavesOak, factory.register(factory.createLayer(idLeavesOak, Blocks.OAK_LEAVES, true)));
+        Identifier idLeavesBirch = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_birch");
+        r.register(idLeavesBirch, factory.register(factory.createLayer(idLeavesBirch, Blocks.BIRCH_LEAVES, true)));
+        Identifier idLeavesSpruce = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_spruce");
+        r.register(idLeavesSpruce, factory.register(factory.createLayer(idLeavesSpruce, Blocks.SPRUCE_LEAVES, true)));
+        Identifier idLeavesJungle = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_jungle");
+        r.register(idLeavesJungle, factory.register(factory.createLayer(idLeavesJungle, Blocks.JUNGLE_LEAVES, true)));
+        Identifier idLeavesBigOak = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_big_oak");
+        r.register(idLeavesBigOak, factory.register(factory.createLayer(idLeavesBigOak, Blocks.DARK_OAK_LEAVES, true)));
+        Identifier idLeavesAcacia = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_acacia");
+        r.register(idLeavesAcacia, factory.register(factory.createLayer(idLeavesAcacia, Blocks.ACACIA_LEAVES, true)));
         //new
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_mangrove"), factory.register(factory.createLayer(Blocks.MANGROVE_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_cherry"), factory.createLayer(Blocks.CHERRY_LEAVES, true));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_azalea"), factory.register(factory.createLayer(Blocks.AZALEA_LEAVES, true)));
-        r.register(Identifier.fromNamespaceAndPath(MODID, "layer_leaves_flowering_azalea"), factory.createLayer(Blocks.FLOWERING_AZALEA_LEAVES, true));
-        // 
+        Identifier idLeavesMangrove = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_mangrove");
+        r.register(idLeavesMangrove, factory.register(factory.createLayer(idLeavesMangrove, Blocks.MANGROVE_LEAVES, true)));
+        Identifier idLeavesCherry = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_cherry");
+        r.register(idLeavesCherry, factory.createLayer(idLeavesCherry, Blocks.CHERRY_LEAVES, true));
+        Identifier idLeavesAzalea = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_azalea");
+        r.register(idLeavesAzalea, factory.register(factory.createLayer(idLeavesAzalea, Blocks.AZALEA_LEAVES, true)));
+        Identifier idLeavesFloweringAzalea = Identifier.fromNamespaceAndPath(MODID, "layer_leaves_flowering_azalea");
+        r.register(idLeavesFloweringAzalea, factory.createLayer(idLeavesFloweringAzalea, Blocks.FLOWERING_AZALEA_LEAVES, true));
+        //
       });
-      Item.Properties properties = new Item.Properties().useBlockDescriptionPrefix();
       event.register(Registries.ITEM, reg -> {
         for (Block b : BlockLayeringFactory.blocks) {
           String id = b.getDescriptionId().replace(HAX, "");
-          reg.register(Identifier.fromNamespaceAndPath(MODID, id), new BlockItem(b, properties));
+          Identifier itemId = Identifier.fromNamespaceAndPath(MODID, id);
+          Item.Properties properties = new Item.Properties()
+              .setId(ResourceKey.create(Registries.ITEM, itemId))
+              .useBlockDescriptionPrefix();
+          reg.register(itemId, new BlockItem(b, properties));
         }
       });
     }

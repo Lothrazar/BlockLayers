@@ -146,17 +146,15 @@
                   "name": "blocklayering:layer_leaves_big_oak"
                 }
               ]
-            }            
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "predicate": {},
+              "entity": "this"
+            }
           ]
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "predicate": {},
-          "entity": "this"
         }
       ]
     }
-  ]
-}

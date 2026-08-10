@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:birch_leaves",
-	  "data":2
-    }
+    "c": "minecraft:birch_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_birch",

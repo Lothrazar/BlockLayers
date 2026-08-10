@@ -5,9 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:light_blue_concrete_powder"
-    }
+    "c": "minecraft:light_blue_concrete_powder"
   },
   "result": {
     "id": "blocklayering:layer_concrete_powder_light_blue",

@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:mangrove_leaves",
-	  "data":0
-    }
+    "c": "minecraft:mangrove_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_mangrove",

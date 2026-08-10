@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:dirt",
-	  "data":0
-    }
+    "c": "minecraft:dirt"
   },
   "result": {
     "id": "blocklayering:layer_dirt",

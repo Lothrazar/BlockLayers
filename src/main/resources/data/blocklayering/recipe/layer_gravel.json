@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:gravel",
-	  "data":0
-    }
+    "c": "minecraft:gravel"
   },
   "result": {
     "id": "blocklayering:layer_gravel",

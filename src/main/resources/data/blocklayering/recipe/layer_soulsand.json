@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:soul_sand",
-	  "data":0
-    }
+    "c": "minecraft:soul_sand"
   },
   "result": {
     "id": "blocklayering:layer_soulsand",

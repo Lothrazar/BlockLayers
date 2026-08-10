@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:hay_block",
-	  "data":0
-    }
+    "c": "minecraft:hay_block"
   },
   "result": {
     "id": "blocklayering:layer_hay",

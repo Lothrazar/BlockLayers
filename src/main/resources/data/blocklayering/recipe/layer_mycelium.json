@@ -5,9 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:mycelium"
-    }
+    "c": "minecraft:mycelium"
   },
   "result": {
     "id": "blocklayering:layer_mycelium",

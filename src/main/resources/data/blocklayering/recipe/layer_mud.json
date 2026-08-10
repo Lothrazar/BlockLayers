@@ -5,9 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:mud"
-    }
+    "c": "minecraft:mud"
   },
   "result": {
     "id": "blocklayering:layer_mud",

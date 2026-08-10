@@ -5,9 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:gray_concrete_powder"
-    }
+    "c": "minecraft:gray_concrete_powder"
   },
   "result": {
     "id": "blocklayering:layer_concrete_powder_gray",

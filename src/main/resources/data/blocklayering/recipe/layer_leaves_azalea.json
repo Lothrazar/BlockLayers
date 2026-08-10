@@ -5,9 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:azalea_leaves"
-    }
+    "c": "minecraft:azalea_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_azalea",

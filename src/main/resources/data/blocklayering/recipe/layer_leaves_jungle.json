@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:jungle_leaves",
-	  "data":3
-    }
+    "c": "minecraft:jungle_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_jungle",

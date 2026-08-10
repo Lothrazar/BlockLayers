@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:oak_leaves",
-	  "data":0
-    }
+    "c": "minecraft:oak_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_oak",

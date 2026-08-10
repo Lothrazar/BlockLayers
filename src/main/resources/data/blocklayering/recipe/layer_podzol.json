@@ -5,9 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:podzol"
-    }
+    "c": "minecraft:podzol"
   },
   "result": {
     "id": "blocklayering:layer_podzol",

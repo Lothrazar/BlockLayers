@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:acacia_leaves",
-	  "data":0
-    }
+    "c": "minecraft:acacia_leaves"
   },
   "result": {
     "id": "blocklayering:layer_leaves_acacia",

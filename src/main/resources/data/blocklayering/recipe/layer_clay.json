@@ -5,10 +5,7 @@
     "cc"
   ],
   "key": {
-    "c": {
-      "item": "minecraft:clay",
-	  "data":0
-    }
+    "c": "minecraft:clay"
   },
   "result": {
     "id": "blocklayering:layer_clay",
